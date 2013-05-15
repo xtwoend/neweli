@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Admin_Controller extends MY_Controller
 {	
@@ -9,9 +9,9 @@ class Admin_Controller extends MY_Controller
         parent::__construct();
         if (! $this->authentication->is_loggedin()) redirect('auth/login');        
         $this->template
-        		->set_theme('admin')
-        		->set_partial('head', 'partials/head')
-        		->set_partial('nav', 'partials/nav')
-        		->set_partial('script', 'partials/script');
+    		->set_theme('admin')
+    		->set_partial('head', 'partials/head')
+    		->set_partial('nav', 'partials/nav')
+    		->set_partial('script', 'partials/script');
     }
 }

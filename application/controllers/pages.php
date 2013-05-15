@@ -20,15 +20,18 @@ class Pages extends Public_Controller {
 			$slug = 'home';
 		}
 
-		$data['page'] = $this->page->find(array('page_lang.url' => $slug ,'page_lang.lang' => $this->lang->mci_current() ));
+		$data['page'] = $this->page->findpage(array('page.title' => $slug ,'page_lang.lang' => $this->lang->mci_current() ));
  		
  		if(!$data['page']){
  			show_404();
  		}
 
  		$this->template
+ 			->title('Prasetiya Mulya', 'Home')
 			->set_layout('main')
-			->build('page', $data);		
+			->set_partial('header', 'partials/header')
+			->set_partial('footer', 'partials/footer')
+			->build('page', $data);
 	}	
 }
  

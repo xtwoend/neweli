@@ -80,7 +80,7 @@ $autoload['helper'] = array('url', 'language', 'form','mci');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('frontend/web');
 
 
 /*

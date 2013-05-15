@@ -5,7 +5,6 @@ class Page extends MY_Model {
 	
 	protected $table = 'page';
 	protected $tablelang = 'page_lang';
-
 	
 	public function findpage($where = array())
 	{	
