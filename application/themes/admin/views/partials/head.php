@@ -5,18 +5,20 @@
     <meta name="author" content="">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/stylesheets/bootstrap-datetimepicker.min.css">
     
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/stylesheets/theme.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/chosen/chosen.css">
+    <!--
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/wysiwyg-color.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css">
-    <script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    -->
+    <script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.8.1.min.js" type="text/javascript"></script> 
+    <script src="<?php echo base_url() ?>assets/admin/lib/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/admin/lib/jquery-ui-sliderAccess.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/admin/lib/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
     
-    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/smoothness/jquery-ui.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
-    <!-- Mac OS X Finder style for jQuery UI smoothness theme (OPTIONAL) -->
-<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url() ?>assets/admin/lib/css/theme.css">
 
     <style type="text/css">
         #line-chart {

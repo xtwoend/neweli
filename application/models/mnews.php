@@ -16,8 +16,9 @@ class Mnews extends MY_Model {
 				$this->db->where($k,$v);
 			}
 		}
-		$user_data = $this->db->get();
-		return $this->_get_row($user_data);
+		// $user_data = $this->db->get();
+		// return $this->_get_row($user_data);
+		return $this->db->get()->result();
 	}
 	
 }

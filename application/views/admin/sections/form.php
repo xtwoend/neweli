@@ -68,7 +68,7 @@
             <div class="control-group">
                 <label class="control-label" for="content_<?php echo $lang->lang;?>">Article</label>
                 <div class="controls">
-                  <textarea rows="10" name="content_<?php echo $lang->lang;?>" id="textearea-editor_<?php echo $lang->lang;?>" class="span12"><?php echo ($create)? '': $sectionlang->content ?></textarea>
+                  <textarea rows="10" name="content_<?php echo $lang->lang;?>" id="textearea-editor_<?php echo $lang->lang;?>" class="ckeditor span12"><?php echo ($create)? '': $sectionlang->content ?></textarea>
                 </div>
             </div>
             
@@ -84,10 +84,7 @@
 <script type="text/javascript">
         $(function () {
             <?php foreach($language as $lang) :?>
-            $('.url_<?php echo $lang->lang;?>').slugify('#title_<?php echo $lang->lang;?>');
-                $('#textearea-editor_<?php echo $lang->lang;?>').wysihtml5({
-                  "html": true, //Button which allows you to edit the generated HTML. Default false
-                });
+                $('.url_<?php echo $lang->lang;?>').slugify('#title_<?php echo $lang->lang;?>');
              <?php endforeach; ?>
             
             $('.url').slugify('#page_title');

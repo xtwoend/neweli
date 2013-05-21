@@ -91,10 +91,13 @@ class MY_Model extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function edit($id, $data = array(), $field = false)
-    {   $idkey = ($field) ? $field : $this->primary_key;
-        if($this->_exist($id , $field)){
-            $this->db->where($idkey, $id);
+    public function edit($id, $data = array(), $key = false, $where = array())
+    {           
+        ($key) ? $this->primary_key = $key : $this->primary_key;
+        
+        if($this->_exist($id)){ 
+            if(count($where)) $this->db->where($where);
+            $this->db->where($this->primary_key, $id);          
             $this->db->update($this->table, $data);
             return $id; 
         }

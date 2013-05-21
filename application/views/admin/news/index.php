@@ -31,19 +31,22 @@
                             <th>Start Event's</th>
                             <th>End Event</th>
                             <th>Full Day Event</th>                            
-                            <th>Aksi</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php print_r($news); if($news){ ?>
+                        <?php 
+						// print_r($news); 
+						if($news){ ?>
                         <?php foreach($news as $dnews) : ?>
                             <tr>
 
-                                <td><?php echo $dnews->title ?></td>
-                                <td><?php echo $this->menu->find(array('id'=>$dnews->menu_id))->name ?></td>
-                                <td><?php echo $dnews->layout ?></td>
+                                <td><?php echo $dnews->news_title ?></td>                               
+                                <td><?php echo $dnews->start_date ?></td>
+                                <td><?php echo $dnews->end_date ?></td>
+                                <td><?php echo $dnews->fullday ? "Yes" : "No"; ?></td>
                                 <td><?php echo anchor('admin/news/edit/'.$dnews->id,'Edit','class="btn btn-mini btn-primary"')?>
-                                    <?php echo anchor('admin/news/remove/'.$dnews->id,'Delete','class="btn btn-mini btn-warning"')?>
+                                    <?php echo anchor('admin/news/remove/'.$dnews->id,'Delete',array('class' => "btn btn-mini btn-warning", 'onclick' => "return confirm('yakin data mau dihapus??')"))?>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
