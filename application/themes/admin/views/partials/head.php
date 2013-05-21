@@ -9,7 +9,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/admin/stylesheets/theme.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/chosen/chosen.css">
-    
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/wysiwyg-color.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css">
     <script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 
     <!-- Demo page code -->
@@ -43,7 +44,3 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-
-
-
-

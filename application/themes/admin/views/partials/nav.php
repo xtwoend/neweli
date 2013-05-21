@@ -13,7 +13,7 @@
                             <li><a tabindex="-1" href="#">My Account</a></li>
                             <li class="divider"></li>
                             <li class="divider visible-phone"></li>
-                            <li><a tabindex="-1" href="<?php echo site_url('logout')?>">Logout</a></li>
+                            <li><a tabindex="-1" href="<?php echo site_url('auth/logout')?>">Logout</a></li>
                         </ul>
                     </li>
                     <?php endif; ?>

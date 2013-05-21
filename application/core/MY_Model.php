@@ -15,8 +15,9 @@ class MY_Model extends CI_Model
         return $result->num_rows() ? $result->row() : FALSE;
     }
 
-    public function _exist($id = null){
-        $this->db->where($this->primary_key, $id);
+    public function _exist($id = null, $field = false){
+        $idkey = ($field) ? $field : $this->primary_key;
+        $this->db->where($idkey, $id);
         $this->db->from($this->table);
         $rec = $this->db->count_all_results();
         if($rec > 0)
@@ -90,19 +91,20 @@ class MY_Model extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function edit($id, $data = array())
-    {   
-        if($this->_exist($id)){
-            $this->db->where($this->primary_key, $id);
+    public function edit($id, $data = array(), $field = false)
+    {   $idkey = ($field) ? $field : $this->primary_key;
+        if($this->_exist($id , $field)){
+            $this->db->where($idkey, $id);
             $this->db->update($this->table, $data);
             return $id; 
         }
         return FALSE;
     }
-    public function delete($id)
-    {
-        if($this->_exist($id)){
-            $this->db->where($this->primary_key, $id);
+    public function delete($id, $field = false)
+    {   
+        $idkey = ($field) ? $field : $this->primary_key;
+        if($this->_exist($id, $field)){
+            $this->db->where($idkey , $id);
             $this->db->delete($this->table);
             return TRUE;
         }

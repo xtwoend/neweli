@@ -123,6 +123,7 @@ class Authentication {
 		// Hash the generated details with a salt to form a secure password hash
 		return crypt($password, $salt);
 
+		//xreturn md5($password);
 	}
 
 

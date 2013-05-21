@@ -25,7 +25,7 @@ class Auth extends CI_Controller {
 			{
 			    redirect('admin/dashboard');			    	
 			} else {
-			   	redirect('login');
+			   	redirect('auth/login');
 			}
 			
 
@@ -39,9 +39,8 @@ class Auth extends CI_Controller {
 	function logout()
 	{
 		$this->authentication->logout();
-		redirect('login');
+		redirect('auth/login');
 	}
-
 	
 }
  
