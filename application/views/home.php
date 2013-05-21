@@ -29,15 +29,11 @@
 			<div style="margin: 0 auto; width: 896px;">
 				<div id="slider" class="cf">
 					<div class="slides_container">
+						<?php foreach ($this->msliders_lang->gets(array('sliders_lang.lang'=> $this->lang->mci_current())) as $banner) : ?>
 						<div>
-							<img src="images/slider1.jpg" height="413" width="896" />
+							<a href="http://<?php echo $banner->link ?>" target="_blank"><img src="<?php echo base_url().'file/banners/'. $this->lang->mci_current() .'/'.$banner->img_src ?>" height="413" width="896" /></a>
 						</div>
-						<div>
-							<img src="images/slider1.jpg" height="413" width="896" />
-						</div>
-						<div>
-							<img src="images/slider1.jpg" height="413" width="896" />
-						</div>
+						<?php endforeach; ?>
 					</div>
 				</div><!--slider-->
 			</div>

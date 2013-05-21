@@ -29,12 +29,10 @@ class Sliders extends Admin_Controller {
 	{		
 		if($_POST){	
 			$arrdata =  array(	
-						'title'			=> ($this->input->post('title_en')) ? $this->input->post('title_en') : $this->input->post('title_in'),
-						// 'url'			=>  $this->input->post('link'),
-						//'never_exp'		=>  ($this->input->post('expired_at')) ? 0 : 1,				
+						'title'			=> ($this->input->post('title_en')) ? $this->input->post('title_en') : $this->input->post('title_in'),		
 						'expired_at'	=>  $this->input->post('expired_at'),				
 						'created_at'	=>  date('Y-m-d H:i:s'),				
-						'never_exp'		=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
+						//'never_exp'		=>  ($this->input->post('never_exp' ,FALSE)) ? 1 : 0,
 						);
 			
 			$slide_id = $this->msliders->add($arrdata);
@@ -47,22 +45,30 @@ class Sliders extends Admin_Controller {
 			
 			if($slide_id)
 			{
+				$image = $this->do_upload();
+				
 				foreach ($this->mlang->get('id, lang') as $lange) {
+					$imagepost = array();
 					
+					if($image){
+						$imagename = $image['banner_'.$lange->lang];
+						$imagepost = array(
+							'img_src' => $imagename
+						);
+					}
 					$newslangdata = array(
 									'lang' => $lange->lang,									
 									'slide_id' => $slide_id,	
 									'link' 		=>  $this->input->post('link_'.$lange->lang),									
-									'title'	=> $this->input->post('title_'.$lange->lang),	
+									'title'	=> $this->input->post('title_'.$lange->lang),
+										
 						);
-					
-					$this->msliders_lang->add($newslangdata);
+					$adddata = $imagepost + $newslangdata;
+					$this->msliders_lang->add($adddata);
 
 				}
 			}
 			
-			$this->do_upload();
-
 			redirect('admin/sliders');
 			
 		}
@@ -84,35 +90,43 @@ class Sliders extends Admin_Controller {
 		
 		if($_POST){
 			$arrdata =  array(						
-						'title'			=> ($this->input->post('title_en')) ? $this->input->post('title_en') : $this->input->post('title_in'),
-						// 'url'			=>  $this->input->post('link'),
-						'never_exp'		=>  ($this->input->post('expired_at')) ? 0 : 1,				
+						'title'			=> ($this->input->post('title_en')) ? $this->input->post('title_en') : $this->input->post('title_in'),		
 						'expired_at'	=>  $this->input->post('expired_at'),				
-						'updated_at'	=>  date('Y-m-d H:i:s'),				
-						'never_exp'		=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
+						'updated_at'	=>  date('Y-m-d H:i:s'),	
 						);
 
 			$edited = $this->msliders->edit($id , $arrdata );
 			
-			foreach ($this->mlang->get('id, lang') as $lange) {
+			if($edited){
+
+				$image = $this->do_upload();
 				
-					$newslangdata = array(									
-									'lang' => $lange->lang,	
-									'link' 		=>  $this->input->post('link_'.$lange->lang),									
-									'title'	=> $this->input->post('title_'.$lange->lang),	
-
+				foreach ($this->mlang->get('id, lang') as $lange) {
+					$imagepost = array();
+					
+					if (!empty($_FILES['banner_'.$lange->lang]['name']))
+		        	{
+						$imagename = $image['banner_'.$lange->lang];
+						$imagepost = array(
+							'img_src' => $imagename
 						);
-
-					$this->msliders_lang->edit($id ,$newslangdata, 'slide_id', array('lang' => $lange->lang));
+					}
+					$newslangdata = array(
+									'lang' => $lange->lang,									
+									'slide_id' => $id,	
+									'link' 		=>  $this->input->post('link_'.$lange->lang),									
+									'title'	=> $this->input->post('title_'.$lange->lang),
+										
+						);
+					$adddata = $imagepost + $newslangdata;
+					$this->msliders_lang->edit($id, $adddata, 'slide_id', array('lang' => $lange->lang));
 
 				}
-			
-			if($edited){
+
 				$this->session->set_flashdata('message', 'Image berhasil di ubah!');
 			}else{
 				$this->session->set_flashdata('message', 'Image gagal di ubah!');
 			}
-			
 			redirect('admin/sliders');
 		}
 
@@ -134,6 +148,7 @@ class Sliders extends Admin_Controller {
 
 		if($this->msliders->delete($id))
 		{	
+			$this->msliders_lang->delete($id,'slide_id');
 			$this->session->set_flashdata('message', 'Image berhasil di hapus!');
 			
 		}else{
@@ -143,22 +158,43 @@ class Sliders extends Admin_Controller {
 	}
 	
 	function do_upload(){
-        $config['upload_path'] = base_url().'uploads/';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size']    = '10000';
-        $config['max_width']  = '1024';
-        $config['max_height']  = '768';
-        $this->load->library('upload', $config);
-			if ( ! $this->upload->do_upload())
-            {
-				$error = array('error' => $this->upload->display_errors());				
-				// $this->load->view('form2', $error);
-            }else{
-                $data = array('upload_data' => $this->upload->data());
-                // $this->load->view('upload_success', $data);
-            }
- 
-        }
+
+	        // Load the library - no config specified here
+	        $this->load->library('upload');
+	 		
+	 		$datareturn  = array();
+	        // Check if there was a file uploaded - there are other ways to
+	        // check this such as checking the 'error' for the file - if error
+	        // is 0, you are good to code
+	        foreach ($this->mlang->get('id, lang') as $lange) {
+
+	        	if (!empty($_FILES['banner_'.$lange->lang]['name']))
+		        {
+		            // Specify configuration for File 1
+		            $config['upload_path'] = 'file/banners/'.$lange->lang;
+		            $config['allowed_types'] = 'gif|jpg|png';
+		            $config['max_size'] = '1000';
+		            $config['max_width']  = '1024';
+		            $config['max_height']  = '1024';       
+		 
+		            // Initialize config for File 1
+		            $this->upload->initialize($config);
+		 
+		            // Upload file 1
+		            if ($this->upload->do_upload('banner_'.$lange->lang))
+		            {
+		                $data = $this->upload->data();
+		                $datareturnnew = array('banner_'.$lange->lang => $data['file_name'] ); 
+		                $datareturn = $datareturn + $datareturnnew;
+		            }
+		            else
+		            {
+		                return false;
+		            }
+		        }
+	        }
+	    return $datareturn;
+	}	
 }
  
 /* End of file */

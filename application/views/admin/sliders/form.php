@@ -55,14 +55,26 @@
 		</div>
 			
     </div>
+    <?php  $indexx = 0;  foreach($language as $lang) :?>
 	<hr>
-            <h4>Upload Image</h4>
-			<div class="control-group">
-              <label for="content" class="control-label">Upload Image</label>              
-			  <div class="controls">
-                <input type="file" name="image" value="" />
+            <h4>Upload Image <?php  echo $lang->language;?></h4>
+            <div class="row">
+              <div class="span5">
+                <div class="control-group">
+                  <label for="content" class="control-label">Upload Image</label>              
+                  <div class="controls">
+                    <?php echo form_upload('banner_'.$lang->lang) ?>
+                  </div>
+                </div>
               </div>
-            </div>  
+              <div class="span7">
+                <?php if(!$create){ ?>
+                <img width="30%" src="<?php echo base_url() ?>file/banners/<?php echo $lang->lang;?>/<?php echo $slide_all[$indexx]->img_src ?>">
+                <?php } ?>
+                </div>
+            </div>
+    			
+    <?php $indexx++;  endforeach; ?>
     <hr>
     <center><button class="btn" type="reset">Cancel</button> <button class="btn btn-primary" type="submit">Save</button></center>
     </form>
