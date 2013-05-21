@@ -12,8 +12,11 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/wysiwyg-color.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css">
     <script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
-
-    <!-- Demo page code -->
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.14/jquery-ui.min.js"></script>
+    <!-- Mac OS X Finder style for jQuery UI smoothness theme (OPTIONAL) -->
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url() ?>assets/admin/lib/css/theme.css">
 
     <style type="text/css">
         #line-chart {

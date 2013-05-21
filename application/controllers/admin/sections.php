@@ -59,8 +59,8 @@ class Sections extends Admin_Controller {
 		$data['language'] = $this->mlang->get();
 		
 		$optionpage = array();
-		foreach ($this->page->get('title, id') as $p) {
-			$optionpage[$p->id] = $p->title;
+		foreach ($this->page->get('page_name, id') as $p) {
+			$optionpage[$p->id] = $p->page_name;
 		}
 
 		$data['create'] = true;
@@ -109,8 +109,8 @@ class Sections extends Admin_Controller {
 		$data['language'] = $this->mlang->get();
 		
 		$optionpage = array();
-		foreach ($this->page->get('title, id') as $p) {
-			$optionpage[$p->id] = $p->title;
+		foreach ($this->page->get('page_name, id') as $p) {
+			$optionpage[$p->id] = $p->page_name;
 		}
 
 		$data['create'] = false;

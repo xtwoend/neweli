@@ -11,4 +11,6 @@ class Section_lang extends MY_Model {
 		$this->db->where('lang',$lang);
 		$this->db->update($this->table, $data);
 	}
+
+	
 }

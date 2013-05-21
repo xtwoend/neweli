@@ -69,7 +69,8 @@
 				<div id="login" class="rounded">
 					<div class="item" style="float:left">
 						<a href="#">
-							<img id="flag" src="<?php echo $this->config->item('images') ?>flag.png" />
+							<img id="flag" src="<?php echo $this->config->item('images') ?>flag/<?php echo $this->lang->mci_current(); ?>.png" />
+							<?php echo langbar(); ?>
 						</a>
 					</div>
 					<div id="search-field" class="item" style="display:none;float:left">

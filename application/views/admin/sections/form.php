@@ -19,7 +19,7 @@
     <div class="row-fluid">
       
           <div class="control-group">
-            <label class="control-label" for="page_id">Parent</label>
+            <label class="control-label" for="page_id">Belongs To Page</label>
             <div class="controls">
               <?php echo form_dropdown('page_id', $optionpages,  ($create) ? '': $section->page_id ,'id="page_id" class="chzn-select"'); ?>
             </div>

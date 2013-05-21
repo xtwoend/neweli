@@ -27,7 +27,7 @@
             <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Title</th>
+                            <th>Page Name</th>
                             <th>Menu</th>
                             <th>View</th>
                             <th>Aksi</th>
@@ -38,7 +38,7 @@
                         <?php foreach($pages as $page) : ?>
                             <tr>
 
-                                <td><?php echo $page->title ?></td>
+                                <td><?php echo $page->page_name ?></td>
                                 <td><?php echo $this->menu->find(array('id'=>$page->menu_id))->name ?></td>
                                 <td><?php echo $page->layout ?></td>
                                 <td><?php echo anchor('admin/pages/edit/'.$page->id,'Edit','class="btn btn-mini btn-primary"')?>

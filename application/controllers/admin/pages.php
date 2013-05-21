@@ -31,7 +31,7 @@ class Pages extends Admin_Controller {
 			$arrdata =  array(
 						'menu_id' =>  $this->input->post('menu_id'),
 						'parent' => $this->input->post('parent'),
-						'title' => $this->input->post('title'),
+						'page_name' => $this->input->post('page_name'),
 						'url' => $this->input->post('url'),
 						'layout' => $this->input->post('layout'),
 						'is_home' =>  ($this->input->post('is_home',FALSE)) ? 1 : 0,
@@ -69,8 +69,8 @@ class Pages extends Admin_Controller {
 			$optionmenu[$menu->id] = $menu->name; 
 		}
 		$optionparent = array('null'=>'/');
-		foreach ($this->page->get('title, id') as $p) {
-			$optionparent[$p->id] = $p->title;
+		foreach ($this->page->get('page_name, id') as $p) {
+			$optionparent[$p->id] = $p->page_name;
 		}
 
 		$data['create'] = true;
@@ -92,7 +92,7 @@ class Pages extends Admin_Controller {
 			$arrdata = array(
 						'menu_id' =>  $this->input->post('menu_id'),
 						'parent' => $this->input->post('parent'),
-						'title' => $this->input->post('title'),
+						'page_name' => $this->input->post('page_name'),
 						'url' => $this->input->post('url'),
 						'layout' => $this->input->post('layout'),
 						'is_home' =>  ($this->input->post('is_home',FALSE)) ? 1 : 0,
@@ -131,8 +131,8 @@ class Pages extends Admin_Controller {
 			$optionmenu[$menu->id] = $menu->name; 
 		}
 		$optionparent = array('null'=>'/');
-		foreach ($this->page->get('title, id') as $p) {
-			$optionparent[$p->id] = $p->title;
+		foreach ($this->page->get('page_name, id') as $p) {
+			$optionparent[$p->id] = $p->page_name;
 		}
 
 		$data['optionmenus'] = $optionmenu;

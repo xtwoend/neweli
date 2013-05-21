@@ -31,9 +31,9 @@
             </div>
           </div>
           <div class="control-group">
-            <label class="control-label" for="title">Page Name</label>
+            <label class="control-label" for="page_name">Page Name</label>
             <div class="controls">
-              <input type="text" name="title" id="page_title" value="<?php echo ($create) ? '': $page->title ?>"> 
+              <input type="text" name="page_name" id="page_name" value="<?php echo ($create) ? '': $page->page_name ?>"> 
             </div>
           </div>
           <div class="control-group">
@@ -45,6 +45,7 @@
           <div class="control-group">
             <label class="control-label" for="layout">View</label>
             <div class="controls">
+
               <input type="text" name="layout" id="layout" value="<?php echo ($create) ? '': $page->layout ?>"> 
             </div>
           </div>
@@ -148,6 +149,6 @@
             $('.url_<?php echo $lang->lang;?>').slugify('#title_<?php echo $lang->lang;?>');
              <?php endforeach; ?>
             
-            $('.url').slugify('#page_title');
+            $('.url').slugify('#page_name');
         });
 </script>

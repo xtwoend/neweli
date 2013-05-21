@@ -38,7 +38,7 @@
                             <tr>
 
                                 <td><?php echo $section->section_name ?></td>
-                                <td><?php echo $this->page->find(array('id'=>$section->page_id))->title ?></td>
+                                <td><?php echo $this->page->find(array('id'=>$section->page_id))->page_name ?></td>
                                 
                                 <td><?php echo anchor('admin/sections/edit/'.$section->id,'Edit','class="btn btn-mini btn-primary"')?>
                                     <?php echo anchor('admin/sections/remove/'.$section->id,'Delete','class="btn btn-mini btn-warning"')?>
