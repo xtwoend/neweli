@@ -1,3 +1,5 @@
+<script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.7.2.min.js" type="text/javascript"></script> 
+<script src="<?php echo base_url() ?>assets/admin/lib/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin/lib/jquery-ui/css/base/jquery-ui.css'); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin/lib/elfinder/css/theme.css'); ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin/lib/elfinder/css/elfinder.min.css'); ?>" />

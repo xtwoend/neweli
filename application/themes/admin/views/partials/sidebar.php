@@ -14,9 +14,10 @@
               <li class="<?php echo ( $this->uri->segment(2) == 'news' ? 'active' : false )?>"><a href="<?php echo site_url('admin/news')?>"><i class="icon-calendar"></i> News & Events </a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'sliders' ? 'active' : false )?>"><a href="<?php echo site_url('admin/sliders')?>"><i class="icon-th-large"></i> Banner Slider</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'programs' ? 'active' : false )?>"><a href="<?php echo site_url('admin/programs')?>"><i class="icon-th-large"></i> Programs</a></li>
+              <li class="<?php echo ( $this->uri->segment(2) == 'periode' ? 'active' : false )?>"><a href="<?php echo site_url('admin/periode')?>"><i class="icon-th-large"></i> Periode</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'questions' ? 'active' : false )?>"><a href="<?php echo site_url('admin/questions')?>"><i class="icon-th-large"></i> Leading Questions</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'registers' ? 'active' : false )?>"><a href="<?php echo site_url('admin/registers')?>"><i class="icon-th-large"></i> User Registers</a></li>
-              <li class="<?php echo ( $this->uri->segment(2) == 'posts' ? 'active' : false )?>"><a href="<?php echo site_url('admin/posts')?>"><i class="icon-list-alt"></i> Posts</a></li>
+              <li class="<?php echo ( $this->uri->segment(2) == 'posts' ? 'active' : false )?>"><a href="<?php echo site_url('admin/posts')?>"><i class="icon-list-alt"></i> Blogs</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'galleries' ? 'active' : false )?>"><a href="<?php echo site_url('admin/galleries')?>"><i class="icon-camera"></i> Galleries</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'images' ? 'active' : false )?>"><a href="<?php echo site_url('admin/images')?>"><i class="icon-picture"></i> Images</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'filemanager' ? 'active' : false )?>"><a href="<?php echo site_url('admin/filemanager')?>"><i class="icon-folder-open"></i> File Managers</a></li>

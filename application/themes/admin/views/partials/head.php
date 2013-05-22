@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/admin/lib/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css">
     -->
     <script src="<?php echo base_url() ?>assets/admin/lib/jquery-1.8.1.min.js" type="text/javascript"></script> 
-    <script src="<?php echo base_url() ?>assets/admin/lib/jquery-ui-1.9.1.custom.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/admin/lib/jquery-ui-sliderAccess.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/admin/lib/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
     
