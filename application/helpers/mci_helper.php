@@ -21,6 +21,14 @@ function lanchor($uri = '', $title = '', $attributes = '') {
   return anchor($uri, $title, $attributes);
 }
 
+function lecho($text = '') {
+  $ci =& get_instance();
+  
+  $text = $ci->lang->mci_make_text($ci->lang->mci_current(), $text);
+  
+  return $text;
+}
+
 // Returns languge bar html
 // Html can be configured in mci_languages.php config file
 function langbar() {

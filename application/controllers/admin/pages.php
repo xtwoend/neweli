@@ -34,6 +34,7 @@ class Pages extends Admin_Controller {
 						'page_name' => $this->input->post('page_name'),
 						'url' => $this->input->post('url'),
 						'layout' => $this->input->post('layout'),
+						'order' => $this->input->post('order'),
 						'is_home' =>  ($this->input->post('is_home',FALSE)) ? 1 : 0,
 						'publish' => ($this->input->post('publish',FALSE)) ? 1 : 0,
 						);
@@ -95,6 +96,7 @@ class Pages extends Admin_Controller {
 						'page_name' => $this->input->post('page_name'),
 						'url' => $this->input->post('url'),
 						'layout' => $this->input->post('layout'),
+						'order' => $this->input->post('order'),
 						'is_home' =>  ($this->input->post('is_home',FALSE)) ? 1 : 0,
 						'publish' => ($this->input->post('publish',FALSE)) ? 1 : 0,
 					);

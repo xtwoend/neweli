@@ -34,6 +34,7 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
 			error_reporting(E_ALL);
+			//error_reporting(E_ALL & ~E_DEPRECATED);
 		break;
 	
 		case 'testing':
@@ -44,6 +45,21 @@ if (defined('ENVIRONMENT'))
 		default:
 			exit('The application environment is not set correctly.');
 	}
+}
+
+/*
+|---------------------------------------------------------------
+| DEFAULT TIMEZONE
+|---------------------------------------------------------------
+|
+| Set the default timezone for date/time functions to use if
+| none is set on the server.
+|
+*/
+
+if( ! ini_get('date.timezone') )
+{
+   date_default_timezone_set('GMT');
 }
 
 /*
@@ -210,6 +226,8 @@ if (defined('ENVIRONMENT'))
  */
 
 require_once BASEPATH.'core/CodeIgniter.php';
+
+
 
 
 /* End of file index.php */
