@@ -13,7 +13,7 @@ class Page_lang extends MY_Model {
 		$this->db->update($this->table, $data);
 	}
 
-	function gets($where=array())
+	function gets($where=array(),$order_by = array())
 	{
 		$this->db->from($this->table);
 		$this->db->join($this->tablepage, 'page.id = page_lang.page_id','left');
@@ -23,6 +23,13 @@ class Page_lang extends MY_Model {
 				$this->db->where($k,$v);
 			}
 		}
+		if(!empty($order_by))
+		{
+			foreach ($order_by as $x => $z) {
+				$this->db->order_by($x, $z); 
+			}
+		}
+
 		return $this->db->get()->result();
 	}
 }

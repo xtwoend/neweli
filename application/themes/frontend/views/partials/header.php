@@ -38,9 +38,16 @@
 		<link rel="stylesheet" href="<?php echo $this->config->item('css') ?>dropkick.css">
     </head>
     <body>
-    	<a href="#" id="event">
+
+    	<a href="<?php lecho('news'); ?>" id="event">
     		<img src="<?php echo $this->config->item('images') ?>curl.png" height="144" width="148" />
     	</a>
+
+    	<?php 
+		$topmenus = $this->page_lang->gets(array('page.menu_id'=>4, 'page_lang.lang'=> $this->lang->mci_current(), 'page.parent' => 0), array('order'=>'asc'));
+		
+		?>
+					
 
 		<header class="cf">
 			<div id="header" class="cf">
@@ -48,30 +55,41 @@
 				<hr class="top cf" />
 				<nav id="menu-top">
 					<ul>
-						<li><a href="#" class="active">home</a></li>
-						<li><a href="about.html">about us</a></li>
-						<li><a href="#">contact us</a></li>
+						<!--<li><?php echo lanchor('', 'Home'); ?></li>-->
+						<?php foreach ($topmenus as $topmenu) {
+							echo '<li>';
+							echo lanchor($topmenu->url, $topmenu->nav_title); 
+							echo '</li>';
+						}
+						?>
+						<!--
 						<li>
-							<a href="#">
-								<input type="button" id="register" class="rounded" name="register" value="register" />
+							<a href="#" >
+								<input type="button" id="register"  name="register" value="register" />
 							</a>
 						</li>
 						<li><a href="#">news &amp; events</a></li>
 						<li><a href="#">blog</a></li>
+						-->
 					</ul>
 				</nav>
 				<select name="menu" id="select" class="dk">
-					<option value="about-us" selected>ABOUT US</option>
-					<option value="contact-us">CONTACT US</option>
-					<option value="news">NEWS &amp; EVENTS</option>
-					<option value="blog">BLOG</option>
+					<?php foreach ($topmenus as $topmenu) { ?>
+					<option value="<?php lecho($topmenu->url); ?>"><?php echo $topmenu->nav_title ?></option>
+					<?php } ?>
 				</select>
 				<div id="login" class="rounded">
 					<div class="item" style="float:left">
-						<a href="#">
-							<!-- <img id="flag" src="<?php echo $this->config->item('images') ?>flag/<?php echo $this->lang->mci_current(); ?>.png" />-->
-							<?php echo langbar(); ?>
+						<?php if($this->lang->mci_current() == 'id') {?>
+						<a href="<?php echo base_url() . lchange('en') ?>">
+							<img id="flag" src="<?php echo $this->config->item('images') ?>flag/uk.png" width="25" />
 						</a>
+						<?php }else{ ?>
+						<a href="<?php echo base_url() . lchange('id') ?>">
+							<img id="flag" src="<?php echo $this->config->item('images') ?>flag/id.png"  width="25" />
+						</a>
+						<?php } ?>
+
 					</div>
 					<div id="search-field" class="item" style="display:none;float:left">
 						<form method="post" action="">

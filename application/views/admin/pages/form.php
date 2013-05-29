@@ -49,6 +49,15 @@
               <input type="text" name="layout" id="layout" value="<?php echo ($create) ? '': $page->layout ?>"> 
             </div>
           </div>
+
+          <div class="control-group">
+            <label class="control-label" for="order">Order</label>
+            <div class="controls">
+
+              <input type="text" name="order" id="order" value="<?php echo ($create) ? '': $page->order ?>"> 
+            </div>
+          </div>
+
           <div class="control-group">
             <label class="control-label" for="online">Page Online ?</label>
             <div class="controls">

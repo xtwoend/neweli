@@ -2,7 +2,7 @@
 		<nav id="breadcrumb" class="cf">
 			<div>
 				<a href="#">Home</a> &raquo;
-				Contact Us
+				<?php echo $page->title; ?>
 			</div>
 		</nav>
 

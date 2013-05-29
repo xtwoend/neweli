@@ -44,10 +44,29 @@ $route['404_override'] = '';
 // All re-mappings must begin with '^(en|et|ru)' !!!
 
 $route['admin(/.*)?'] = 'admin$1';
-//$route['login'] = 'auth/login';
-//$route['logout'] = 'auth/logout';
 $route['auth(/.*)?'] = 'auth$1';
+//test routers
 $route['test(/.*)?'] = 'test$1';
+
+//Frontend routers
+$route['email(/.*)?'] = 'email$1';
+
+$route['news(/.*)?'] = 'news$1';
+$route['^(en|id)/news(/.*)?'] = 'news$2';
+
+$route['what-they-say(/.*)?'] = 'blogs$1';
+$route['^(en|id)/what-they-say(/.*)?'] = 'blogs$2';
+
+$route['registers(/.*)?'] = 'registers$1';
+$route['^(en|id)/registers(/.*)?'] = 'registers$2';
+
+$route['questions(/.*)?'] = 'questions$1';
+$route['^(en|id)/questions(/.*)?'] = 'questions$2';
+
+$route['programs(/.*)?'] = 'programs$1';
+$route['^(en|id)/programs(/.*)?'] = 'programs$2';
+
+//CMS routers
 $route['^(en|id)/(.+)$'] = "$2";
 //$route['^(en|id)$'] = $route['default_controller'];
 $route['(.*)'] = $route['default_controller'].'/index/$1';

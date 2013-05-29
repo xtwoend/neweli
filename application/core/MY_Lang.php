@@ -70,6 +70,19 @@ class MY_Lang extends CI_Lang {
     $uri = $language_segment.'/'.$uri;
     return $uri;
   }
+
+  // returns uri string with language segment
+  function mci_make_text($language_segment, $text = FALSE) {
+    
+    $text = trim($text, '/');   
+
+    if(array_key_exists($text[1], $this->mci_languages)) {
+      array_shift($text);
+    }
+
+    //$text = $language_segment.'/'.$text;
+    echo $text;
+  }
   
   // returns html language bar
   function mci_language_bar() {
