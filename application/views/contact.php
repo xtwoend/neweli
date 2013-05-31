@@ -48,7 +48,7 @@
 			</div><!--left-->
 
 			<div class="right">
-				{{ HTML::image('themes/images/logo-right.jpg', '', array('height'=>'61', 'width'=>'220' )) }} 
+				<img src="<?php echo $this->config->item('images') ?>logo-right.jpg" height="61" width="220">
 				<h2><?php echo $this->lang->line('office'); ?></h2>
 				<p>
 					Prasetiya Mulya Campus, Building 2, #2203<br />
@@ -77,15 +77,15 @@
 				</table>
 
 				<p>
-					{{ HTML::image('themes/images/map-icon.jpg', '', array('height'=>'23', 'width'=>'20' )) }} 
+					<img src="<?php echo $this->config->item('images') ?>map-icon.jpg" height="23" width="20">
 					<h2><?php echo $this->lang->line('location'); ?></h2>
 				</p>
 				<p>
-					{{ HTML::image('themes/images/map.jpg', '', array('height'=>'208', 'width'=>'252', 'class'=>'cf block' )) }} 
+					<img src="<?php echo $this->config->item('images') ?>map.jpg" height="208" width="252" class="cf block">
 					<a class="cright cf" href="#">See it on Google Maps &raquo;</a>
 				</p>
 				<p>
-					{{ HTML::image('themes/images/map-qr.gif', '', array('height'=>'163', 'width'=>'139', 'class'=>'cf' )) }}
+					<img src="<?php echo $this->config->item('images') ?>map-qr.gif" height="163" width="139" class="cf">
 				</p>
 			</div><!--right-->
 		</article>
