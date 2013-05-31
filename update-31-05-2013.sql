@@ -96,6 +96,7 @@ CREATE TABLE IF NOT EXISTS `news` (
   `news_title` varchar(200) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
   `fullday` int(11) DEFAULT NULL,
   `user_id` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -103,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `news` (
 
 -- Dumping data for table newcms.news: ~1 rows (approximately)
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` (`id`, `news_title`, `start_date`, `end_date`, `fullday`, `user_id`) VALUES
-	(5, 'seminar-computer', '2013-05-21 09:53:40', '2013-05-21 09:53:40', 1, NULL);
+INSERT INTO `news` (`id`, `news_title`, `start_date`, `end_date`, `url`, `fullday`, `user_id`) VALUES
+	(5, 'Seminar Computer', '2013-05-21 09:53:40', '2013-05-21 09:53:40', 'seminar-computer', 1, NULL);
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 
 
@@ -114,7 +115,6 @@ CREATE TABLE IF NOT EXISTS `news_lang` (
   `lang` varchar(2) DEFAULT NULL,
   `news_id` int(10) DEFAULT NULL,
   `title` varchar(200) DEFAULT NULL,
-  `url` varchar(200) DEFAULT NULL,
   `subtitle` varchar(200) DEFAULT NULL,
   `content` text,
   `meta_title` varchar(255) DEFAULT NULL,
@@ -125,9 +125,9 @@ CREATE TABLE IF NOT EXISTS `news_lang` (
 
 -- Dumping data for table newcms.news_lang: ~2 rows (approximately)
 /*!40000 ALTER TABLE `news_lang` DISABLE KEYS */;
-INSERT INTO `news_lang` (`lang`, `news_id`, `title`, `url`, `subtitle`, `content`, `meta_title`, `meta_description`, `meta_keywords`) VALUES
-	('en', 5, 'Seminar Computer', 'seminar-computer', '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu accumsan neque. Phasellus non justo lorem. Aliquam vulputate placerat lorem, in facilisis urna malesuada non. Sed vel enim dui. Curabitur posuere neque id lectus ornare pharetra. Etiam volutpat sapien eu risus cursus tincidunt at vitae felis. Morbi eu sem ac metus bibendum sollicitudin sit amet vel purus. Vestibulum sed lectus leo. Ut aliquet mollis tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus elit, facilisis sagittis adipiscing pulvinar, dapibus sed ligula. Quisque quis porttitor eros.&nbsp;</p>\r\n\r\n<p>Praesent congue iaculis sollicitudin. Vivamus vel quam ac tortor vestibulum posuere. Sed sit amet lectus magna. Fusce nunc ligula, faucibus vel consectetur vel, blandit non ipsum. Donec fringilla metus eget mi aliquam at faucibus velit suscipit. Ut ipsum justo, venenatis id scelerisque in, pretium ut risus. Curabitur fermentum orci sed ante eleifend laoreet. Vivamus nec velit est. Integer sem arcu, dapibus a luctus vel, imperdiet venenatis augue. Mauris lacinia lectus non magna pretium elementum. Pellentesque egestas, lorem at suscipit lobortis, nibh eros eleifend urna, euismod blandit purus quam non velit. Donec ac quam at erat sollicitudin hendrerit sit amet ac magna. Aenean eget hendrerit elit. Mauris aliquet, magna ac sagittis tristique, ante diam fringilla lorem, vel varius erat risus eget risus. Pellentesque at purus eget nunc mattis pellentesque. Nam sollicitudin, orci ac viverra dignissim, arcu turpis rhoncus nulla, in iaculis velit nisl in sapien. Cras quis lorem tellus.</p>\r\n\r\n<p>Vivamus aliquam, sapien at pharetra commodo, lacus magna fermentum sem, eget feugiat ipsum leo dignissim nulla. Aenean sit amet viverra purus. Aenean interdum sem vitae mi interdum molestie. Sed vitae diam mi, ut congue leo. Ut bibendum ultrices tellus, dapibus venenatis magna ornare ac. Quisque augue arcu, scelerisque at pretium in, porttitor at justo. Pellentesque malesuada, nunc lacinia pharetra aliquam, sem neque ornare nunc, ut accumsan tortor risus id ipsum. Fusce sit amet viverra est. Suspendisse augue massa, venenatis a vulputate id, aliquet in felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vel massa arcu, sed mattis nunc. Sed eget arcu massa. Fusce leo diam, placerat eu ornare eget, sollicitudin non mauris. Nulla interdum, augue at iaculis blandit, dolor justo faucibus elit, quis porttitor risus metus eu diam. In sit amet dolor neque, sed semper arcu. Ut tristique vulputate lorem vel ultricies. Sed a purus eros, in sollicitudin nisi. Morbi et nisl nec risus laoreet viverra. Curabitur eu risus ac purus cursus tincidunt quis nec quam.&nbsp;</p>\r\n\r\n<p>Praesent et eros ut diam facilisis posuere. Aliquam viverra, tellus vel venenatis gravida, arcu ligula posuere est, vitae bibendum sem leo id massa. Mauris mollis rhoncus neque, non hendrerit enim lobortis in. Ut dapibus auctor rhoncus. Sed ultrices viverra purus id feugiat. Curabitur id ligula nec sem consequat porta nec nec nunc. Curabitur quis dui vitae ipsum ultrices vehicula et sed ligula. Maecenas lacinia enim quis nisi malesuada quis viverra mi pulvinar. Suspendisse bibendum felis ut elit dictum id tincidunt lorem molestie.</p>\r\n', 'z a', 'z a', 'z a'),
-	('id', 5, 'Seminar Komputer', 'seminar-komputer', '-', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu accumsan neque. Phasellus non justo lorem. Aliquam vulputate placerat lorem, in facilisis urna malesuada non. Sed vel enim dui. Curabitur posuere neque id lectus ornare pharetra. Etiam volutpat sapien eu risus cursus tincidunt at vitae felis. Morbi eu sem ac metus bibendum sollicitudin sit amet vel purus. Vestibulum sed lectus leo. Ut aliquet mollis tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus elit, facilisis sagittis adipiscing pulvinar, dapibus sed ligula. Quisque quis porttitor eros.</p>\r\n\r\n<p>Praesent congue iaculis sollicitudin. Vivamus vel quam ac tortor vestibulum posuere. Sed sit amet lectus magna. Fusce nunc ligula, faucibus vel consectetur vel, blandit non ipsum. Donec fringilla metus eget mi aliquam at faucibus velit suscipit. Ut ipsum justo, venenatis id scelerisque in, pretium ut risus. Curabitur fermentum orci sed ante eleifend laoreet. Vivamus nec velit est. Integer sem arcu, dapibus a luctus vel, imperdiet venenatis augue. Mauris lacinia lectus non magna pretium elementum. Pellentesque egestas, lorem at suscipit lobortis, nibh eros eleifend urna, euismod blandit purus quam non velit. Donec ac quam at erat sollicitudin hendrerit sit amet ac magna. Aenean eget hendrerit elit. Mauris aliquet, magna ac sagittis tristique, ante diam fringilla lorem, vel varius erat risus eget risus. Pellentesque at purus eget nunc mattis pellentesque. Nam sollicitudin, orci ac viverra dignissim, arcu turpis rhoncus nulla, in iaculis velit nisl in sapien. Cras quis lorem tellus.</p>\r\n\r\n<p>Vivamus aliquam, sapien at pharetra commodo, lacus magna fermentum sem, eget feugiat ipsum leo dignissim nulla. Aenean sit amet viverra purus. Aenean interdum sem vitae mi interdum molestie. Sed vitae diam mi, ut congue leo. Ut bibendum ultrices tellus, dapibus venenatis magna ornare ac. Quisque augue arcu, scelerisque at pretium in, porttitor at justo. Pellentesque malesuada, nunc lacinia pharetra aliquam, sem neque ornare nunc, ut accumsan tortor risus id ipsum. Fusce sit amet viverra est. Suspendisse augue massa, venenatis a vulputate id, aliquet in felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vel massa arcu, sed mattis nunc. Sed eget arcu massa. Fusce leo diam, placerat eu ornare eget, sollicitudin non mauris. Nulla interdum, augue at iaculis blandit, dolor justo faucibus elit, quis porttitor risus metus eu diam. In sit amet dolor neque, sed semper arcu. Ut tristique vulputate lorem vel ultricies. Sed a purus eros, in sollicitudin nisi. Morbi et nisl nec risus laoreet viverra. Curabitur eu risus ac purus cursus tincidunt quis nec quam.</p>\r\n\r\n<p>Praesent et eros ut diam facilisis posuere. Aliquam viverra, tellus vel venenatis gravida, arcu ligula posuere est, vitae bibendum sem leo id massa. Mauris mollis rhoncus neque, non hendrerit enim lobortis in. Ut dapibus auctor rhoncus. Sed ultrices viverra purus id feugiat. Curabitur id ligula nec sem consequat porta nec nec nunc. Curabitur quis dui vitae ipsum ultrices vehicula et sed ligula. Maecenas lacinia enim quis nisi malesuada quis viverra mi pulvinar. Suspendisse bibendum felis ut elit dictum id tincidunt lorem molestie.</p>\r\n', 'z', 'z', 'z');
+INSERT INTO `news_lang` (`lang`, `news_id`, `title`, `subtitle`, `content`, `meta_title`, `meta_description`, `meta_keywords`) VALUES
+	('en', 5, 'Seminar Computer', '', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu accumsan neque. Phasellus non justo lorem. Aliquam vulputate placerat lorem, in facilisis urna malesuada non. Sed vel enim dui. Curabitur posuere neque id lectus ornare pharetra. Etiam volutpat sapien eu risus cursus tincidunt at vitae felis. Morbi eu sem ac metus bibendum sollicitudin sit amet vel purus. Vestibulum sed lectus leo. Ut aliquet mollis tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus elit, facilisis sagittis adipiscing pulvinar, dapibus sed ligula. Quisque quis porttitor eros.&nbsp;</p>\r\n\r\n<p>Praesent congue iaculis sollicitudin. Vivamus vel quam ac tortor vestibulum posuere. Sed sit amet lectus magna. Fusce nunc ligula, faucibus vel consectetur vel, blandit non ipsum. Donec fringilla metus eget mi aliquam at faucibus velit suscipit. Ut ipsum justo, venenatis id scelerisque in, pretium ut risus. Curabitur fermentum orci sed ante eleifend laoreet. Vivamus nec velit est. Integer sem arcu, dapibus a luctus vel, imperdiet venenatis augue. Mauris lacinia lectus non magna pretium elementum. Pellentesque egestas, lorem at suscipit lobortis, nibh eros eleifend urna, euismod blandit purus quam non velit. Donec ac quam at erat sollicitudin hendrerit sit amet ac magna. Aenean eget hendrerit elit. Mauris aliquet, magna ac sagittis tristique, ante diam fringilla lorem, vel varius erat risus eget risus. Pellentesque at purus eget nunc mattis pellentesque. Nam sollicitudin, orci ac viverra dignissim, arcu turpis rhoncus nulla, in iaculis velit nisl in sapien. Cras quis lorem tellus.</p>\r\n\r\n<p>Vivamus aliquam, sapien at pharetra commodo, lacus magna fermentum sem, eget feugiat ipsum leo dignissim nulla. Aenean sit amet viverra purus. Aenean interdum sem vitae mi interdum molestie. Sed vitae diam mi, ut congue leo. Ut bibendum ultrices tellus, dapibus venenatis magna ornare ac. Quisque augue arcu, scelerisque at pretium in, porttitor at justo. Pellentesque malesuada, nunc lacinia pharetra aliquam, sem neque ornare nunc, ut accumsan tortor risus id ipsum. Fusce sit amet viverra est. Suspendisse augue massa, venenatis a vulputate id, aliquet in felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vel massa arcu, sed mattis nunc. Sed eget arcu massa. Fusce leo diam, placerat eu ornare eget, sollicitudin non mauris. Nulla interdum, augue at iaculis blandit, dolor justo faucibus elit, quis porttitor risus metus eu diam. In sit amet dolor neque, sed semper arcu. Ut tristique vulputate lorem vel ultricies. Sed a purus eros, in sollicitudin nisi. Morbi et nisl nec risus laoreet viverra. Curabitur eu risus ac purus cursus tincidunt quis nec quam.&nbsp;</p>\r\n\r\n<p>Praesent et eros ut diam facilisis posuere. Aliquam viverra, tellus vel venenatis gravida, arcu ligula posuere est, vitae bibendum sem leo id massa. Mauris mollis rhoncus neque, non hendrerit enim lobortis in. Ut dapibus auctor rhoncus. Sed ultrices viverra purus id feugiat. Curabitur id ligula nec sem consequat porta nec nec nunc. Curabitur quis dui vitae ipsum ultrices vehicula et sed ligula. Maecenas lacinia enim quis nisi malesuada quis viverra mi pulvinar. Suspendisse bibendum felis ut elit dictum id tincidunt lorem molestie.</p>\r\n', 'z a', 'z a', 'z a'),
+	('id', 5, 'Seminar Komputer', '-', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eu accumsan neque. Phasellus non justo lorem. Aliquam vulputate placerat lorem, in facilisis urna malesuada non. Sed vel enim dui. Curabitur posuere neque id lectus ornare pharetra. Etiam volutpat sapien eu risus cursus tincidunt at vitae felis. Morbi eu sem ac metus bibendum sollicitudin sit amet vel purus. Vestibulum sed lectus leo. Ut aliquet mollis tempor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tellus elit, facilisis sagittis adipiscing pulvinar, dapibus sed ligula. Quisque quis porttitor eros.</p>\r\n\r\n<p>Praesent congue iaculis sollicitudin. Vivamus vel quam ac tortor vestibulum posuere. Sed sit amet lectus magna. Fusce nunc ligula, faucibus vel consectetur vel, blandit non ipsum. Donec fringilla metus eget mi aliquam at faucibus velit suscipit. Ut ipsum justo, venenatis id scelerisque in, pretium ut risus. Curabitur fermentum orci sed ante eleifend laoreet. Vivamus nec velit est. Integer sem arcu, dapibus a luctus vel, imperdiet venenatis augue. Mauris lacinia lectus non magna pretium elementum. Pellentesque egestas, lorem at suscipit lobortis, nibh eros eleifend urna, euismod blandit purus quam non velit. Donec ac quam at erat sollicitudin hendrerit sit amet ac magna. Aenean eget hendrerit elit. Mauris aliquet, magna ac sagittis tristique, ante diam fringilla lorem, vel varius erat risus eget risus. Pellentesque at purus eget nunc mattis pellentesque. Nam sollicitudin, orci ac viverra dignissim, arcu turpis rhoncus nulla, in iaculis velit nisl in sapien. Cras quis lorem tellus.</p>\r\n\r\n<p>Vivamus aliquam, sapien at pharetra commodo, lacus magna fermentum sem, eget feugiat ipsum leo dignissim nulla. Aenean sit amet viverra purus. Aenean interdum sem vitae mi interdum molestie. Sed vitae diam mi, ut congue leo. Ut bibendum ultrices tellus, dapibus venenatis magna ornare ac. Quisque augue arcu, scelerisque at pretium in, porttitor at justo. Pellentesque malesuada, nunc lacinia pharetra aliquam, sem neque ornare nunc, ut accumsan tortor risus id ipsum. Fusce sit amet viverra est. Suspendisse augue massa, venenatis a vulputate id, aliquet in felis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer vel massa arcu, sed mattis nunc. Sed eget arcu massa. Fusce leo diam, placerat eu ornare eget, sollicitudin non mauris. Nulla interdum, augue at iaculis blandit, dolor justo faucibus elit, quis porttitor risus metus eu diam. In sit amet dolor neque, sed semper arcu. Ut tristique vulputate lorem vel ultricies. Sed a purus eros, in sollicitudin nisi. Morbi et nisl nec risus laoreet viverra. Curabitur eu risus ac purus cursus tincidunt quis nec quam.</p>\r\n\r\n<p>Praesent et eros ut diam facilisis posuere. Aliquam viverra, tellus vel venenatis gravida, arcu ligula posuere est, vitae bibendum sem leo id massa. Mauris mollis rhoncus neque, non hendrerit enim lobortis in. Ut dapibus auctor rhoncus. Sed ultrices viverra purus id feugiat. Curabitur id ligula nec sem consequat porta nec nec nunc. Curabitur quis dui vitae ipsum ultrices vehicula et sed ligula. Maecenas lacinia enim quis nisi malesuada quis viverra mi pulvinar. Suspendisse bibendum felis ut elit dictum id tincidunt lorem molestie.</p>\r\n', 'z', 'z', 'z');
 /*!40000 ALTER TABLE `news_lang` ENABLE KEYS */;
 
 
@@ -265,16 +265,19 @@ DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `post_name` varchar(255) NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
   `created_by` int(11) NOT NULL,
   `enable_comment` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table newcms.posts: ~0 rows (approximately)
+-- Dumping data for table newcms.posts: ~2 rows (approximately)
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
+INSERT INTO `posts` (`id`, `post_name`, `url`, `created_by`, `enable_comment`, `created_at`, `updated_at`) VALUES
+	(2, 'Posting yang pertama', 'posting-yang-pertama', 3, 0, '2013-05-31 07:27:14', '2013-05-31 07:36:33'),
+	(3, 'Testing posting lagi aja', 'testing-posting-lagi-aja', 3, 0, '2013-05-31 07:39:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
 
@@ -292,8 +295,13 @@ CREATE TABLE IF NOT EXISTS `posts_lang` (
   UNIQUE KEY `lang` (`lang`,`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table newcms.posts_lang: ~0 rows (approximately)
+-- Dumping data for table newcms.posts_lang: ~4 rows (approximately)
 /*!40000 ALTER TABLE `posts_lang` DISABLE KEYS */;
+INSERT INTO `posts_lang` (`lang`, `post_id`, `title`, `subtitle`, `content`, `meta_title`, `meta_keywords`, `meta_description`) VALUES
+	('en', 2, 'testing posting', 'aa', '<p>asdasd</p>\r\n', 'a', 'a', 'a'),
+	('id', 2, 'Testing posting', '', '<p>asdasd</p>\r\n', 'aa', 'a', 'a'),
+	('en', 3, 'english kali yah', '', '<pre>\r\nobject(stdClass)[30]\r\n  public &#39;lang&#39; =&gt; string &#39;en&#39; (length=2)\r\n  public &#39;post_id&#39; =&gt; string &#39;2&#39; (length=1)\r\n  public &#39;title&#39; =&gt; string &#39;testing posting&#39; (length=15)\r\n  public &#39;subtitle&#39; =&gt; string &#39;aa&#39; (length=2)\r\n  public &#39;content&#39; =&gt; string &#39;&lt;p&gt;asdasd&lt;/p&gt;\r\n&#39; (length=15)\r\n  public &#39;meta_title&#39; =&gt; string &#39;a&#39; (length=1)\r\n  public &#39;meta_keywords&#39; =&gt; string &#39;a&#39; (length=1)\r\n  public &#39;meta_description&#39; =&gt; string &#39;a&#39; (length=1)\r\n  public &#39;id&#39; =&gt; string &#39;2&#39; (length=1)\r\n  public &#39;post_name&#39; =&gt; string &#39;Posting yang pertama&#39; (length=20)\r\n  public &#39;url&#39; =&gt; string &#39;posting-yang-pertama&#39; (length=20)\r\n  public &#39;created_by&#39; =&gt; string &#39;3&#39; (length=1)\r\n  public &#39;enable_comment&#39; =&gt; string &#39;0&#39; (length=1)\r\n  public &#39;created_at&#39; =&gt; string &#39;2013-05-31 07:27:14&#39; (length=19)\r\n  public &#39;updated_at&#39; =&gt; string &#39;2013-05-31 07:36:33&#39; (length=19)</pre>\r\n', 'a', 'a', 'a'),
+	('id', 3, 'asdasdasdas', '', '<p>asdasdasd</p>\r\n', 'a', 'a', 'a');
 /*!40000 ALTER TABLE `posts_lang` ENABLE KEYS */;
 
 
@@ -301,46 +309,70 @@ CREATE TABLE IF NOT EXISTS `posts_lang` (
 DROP TABLE IF EXISTS `programs`;
 CREATE TABLE IF NOT EXISTS `programs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `lang` varchar(2) DEFAULT NULL,
   `program` varchar(100) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
-  `link` varchar(100) DEFAULT NULL,
-  `content` text,
-  `day` int(11) DEFAULT NULL,
+  `first_program` int(11) DEFAULT NULL,
+  `url` varchar(100) DEFAULT NULL,
   `parent` int(10) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newcms.programs: ~26 rows (approximately)
 /*!40000 ALTER TABLE `programs` DISABLE KEYS */;
-INSERT INTO `programs` (`id`, `lang`, `program`, `price`, `link`, `content`, `day`, `parent`) VALUES
-	(1, 'en', 'Public Courses Programs', 100000, NULL, 'PM ELI Public Short Courses are designed in workshop format to be effective for general public. Subjects offered include functional management – Human Resource, Marketing, Operation/Production, Finance, Contemporary Topics – and Strategic management.<br><br>Functional short courses are intended to help participants in developing functional knowledge and skills to apply in their workplace. The assortment of subjects offered includes hard skill and soft skill to develop the competencies and skills of participants to becoming reliable resources in achieving company’s targets.<br><br>The main goal of strategic management short courses is to equip middle and top managers with &nbsp;important knowledge and skills to develop strategic thinking framework. Abilities to analyze and develop business strategies, identify and measure company’s performance, and to manage changes are crucial in ensuring the competitive advantages and growth of the company.', NULL, 0),
-	(2, 'en', 'Certificate Programs', 140000, NULL, NULL, NULL, 0),
-	(3, 'en', 'International Certificate Program', 140000, NULL, NULL, NULL, 2),
-	(4, 'en', 'Managerial Courses', 140000, NULL, NULL, NULL, 1),
-	(5, 'en', 'MARKETING MANAGEMENT', 140000, NULL, NULL, NULL, 4),
-	(6, 'en', 'FINANCIAL MANAGEMENT', 140000, NULL, NULL, NULL, 4),
-	(7, 'en', 'OPERATIONS MANAGEMENT', 140000, NULL, NULL, NULL, 4),
-	(8, 'en', 'CONTEMPORARY TOPICS ', 140000, NULL, NULL, NULL, 4),
-	(9, 'en', 'STRATEGIC COURSES', 140000, NULL, NULL, NULL, 4),
-	(10, 'en', 'HUMAN RESOURCE MANAGEMENT', 140000, NULL, NULL, NULL, 4),
-	(11, 'en', 'Effective Leadership', 140000, NULL, NULL, NULL, 10),
-	(12, 'en', 'Effective Supervisory', 140000, NULL, NULL, NULL, 10),
-	(13, 'en', 'Human Resources for Non Human Resources Manager', 140000, NULL, NULL, NULL, 10),
-	(14, 'en', 'Problem Solving and Decision Making', 140000, NULL, NULL, NULL, 10),
-	(15, 'en', 'Business Presentation and Writing (in English)', 140000, NULL, NULL, NULL, 10),
-	(16, 'en', 'Training for Trainers', 140000, NULL, NULL, NULL, 10),
-	(17, 'en', 'Building Powerful Brand', 140000, NULL, NULL, NULL, 5),
-	(18, 'en', 'Negotiation Skills in Business', 140000, NULL, NULL, NULL, 5),
-	(19, 'en', 'Effective Selling Technique', 140000, NULL, NULL, NULL, 5),
-	(20, 'en', 'Applied Marketing Research', 140000, NULL, NULL, NULL, 5),
-	(21, 'en', 'Integrated Marketing Communication', 140000, NULL, NULL, NULL, 5),
-	(22, 'en', 'Digital Marketing', 140000, NULL, NULL, NULL, 5),
-	(23, 'en', 'Contemporary Retail Marketing', 140000, NULL, NULL, NULL, 5),
-	(24, 'en', 'Financial Management for Non Finance Manager', 140000, NULL, NULL, NULL, 6),
-	(25, 'en', 'Finance for Senior Manager (in English)', 140000, NULL, NULL, NULL, 6),
-	(26, 'en', 'Strategic Courses', 140000, NULL, NULL, NULL, 1);
+INSERT INTO `programs` (`id`, `program`, `price`, `first_program`, `url`, `parent`) VALUES
+	(1, 'Public Courses Programs', 100000, 1, NULL, 0),
+	(2, 'Certificate Programs', 140000, NULL, NULL, 0),
+	(3, 'International Certificate Program', 140000, NULL, NULL, 2),
+	(4, 'Managerial Courses', 140000, NULL, NULL, 1),
+	(5, 'MARKETING MANAGEMENT', 140000, NULL, NULL, 4),
+	(6, 'FINANCIAL MANAGEMENT', 140000, NULL, NULL, 4),
+	(7, 'OPERATIONS MANAGEMENT', 140000, NULL, NULL, 4),
+	(8, 'CONTEMPORARY TOPICS ', 140000, NULL, NULL, 4),
+	(9, 'STRATEGIC COURSES', 140000, NULL, NULL, 4),
+	(10, 'HUMAN RESOURCE MANAGEMENT', 140000, NULL, NULL, 4),
+	(11, 'Effective Leadership', 140000, NULL, NULL, 10),
+	(12, 'Effective Supervisory', 140000, NULL, NULL, 10),
+	(13, 'Human Resources for Non Human Resources Manager', 140000, NULL, NULL, 10),
+	(14, 'Problem Solving and Decision Making', 140000, NULL, NULL, 10),
+	(15, 'Business Presentation and Writing (in English)', 140000, NULL, NULL, 10),
+	(16, 'Training for Trainers', 140000, NULL, NULL, 10),
+	(17, 'Building Powerful Brand', 140000, NULL, NULL, 5),
+	(18, 'Negotiation Skills in Business', 140000, NULL, NULL, 5),
+	(19, 'Effective Selling Technique', 140000, NULL, NULL, 5),
+	(20, 'Applied Marketing Research', 140000, NULL, NULL, 5),
+	(21, 'Integrated Marketing Communication', 140000, NULL, NULL, 5),
+	(22, 'Digital Marketing', 140000, NULL, NULL, 5),
+	(23, 'Contemporary Retail Marketing', 140000, NULL, NULL, 5),
+	(24, 'Financial Management for Non Finance Manager', 140000, NULL, NULL, 6),
+	(25, 'Finance for Senior Manager (in English)', 140000, NULL, NULL, 6),
+	(26, 'Strategic Courses', 140000, NULL, NULL, 1);
 /*!40000 ALTER TABLE `programs` ENABLE KEYS */;
+
+
+-- Dumping structure for table newcms.program_lang
+DROP TABLE IF EXISTS `program_lang`;
+CREATE TABLE IF NOT EXISTS `program_lang` (
+  `lang` varchar(2) DEFAULT NULL,
+  `program_id` int(11) DEFAULT NULL,
+  `program_name` varchar(200) DEFAULT NULL,
+  `content` text,
+  UNIQUE KEY `lang` (`lang`,`program_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newcms.program_lang: ~10 rows (approximately)
+/*!40000 ALTER TABLE `program_lang` DISABLE KEYS */;
+INSERT INTO `program_lang` (`lang`, `program_id`, `program_name`, `content`) VALUES
+	('id', 1, 'Test', 'Test aja'),
+	('en', 1, 'Whey', 'sdasd'),
+	('id', 2, 'Program Sertifikat', 'asdasd'),
+	('en', 2, 'Sertiofication Programs', 'jkhkaskd'),
+	('id', 3, 'Sertifikat Internasional Program', 'asdasd'),
+	('en', 3, 'International Certificate Program', 'asdasd'),
+	('id', 4, 'Hello', 'askld'),
+	('en', 4, 'Wheybb', 'asd'),
+	('id', 5, 'MARKETING MANAGEMENT', 'ss'),
+	('en', 5, 'Marketing Managemen', 'sss');
+/*!40000 ALTER TABLE `program_lang` ENABLE KEYS */;
 
 
 -- Dumping structure for table newcms.questions
@@ -523,7 +555,7 @@ CREATE TABLE IF NOT EXISTS `section_lang` (
   UNIQUE KEY `sectionlang` (`lang`,`section_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table newcms.section_lang: ~6 rows (approximately)
+-- Dumping data for table newcms.section_lang: ~30 rows (approximately)
 /*!40000 ALTER TABLE `section_lang` DISABLE KEYS */;
 INSERT INTO `section_lang` (`section_id`, `lang`, `title`, `subtitle`, `content`) VALUES
 	(6, 'en', 'Who We Are', '', '<p>Dates back to May 19, 1980, when a group of prominent business leaders in Indonesia set up the Prasetiya Mulya Foundation (YPM) as a commitment to give real contributions to the nation. The words of Prasetiya Mulya is the Sanskrit words for noble pledge; the name that was given by the President of Republic of Indonesia.</p>\r\n\r\n<p><img src="http://localhost/elinew/prasmul-eli/themes/images/photo1.png" style="float:right; margin:20px 0px" /></p>\r\n\r\n<p>With a mission to develop professionalism in Indonesia business management practices that anchored to the sound management knowledge and skill, Prasetiya Mulya Foundation established the Management Development Centre in 1982, which later became the Prasetiya Mulya Institute of Management (IMPM) ; a not for profit organization to provide management education and training. Beside executive management courses and development program for small and medium enterprises, Prasetiya Mulya Institute of Management also initiated the first MBA program in Indonesia.</p>\r\n\r\n<p>In 1993, the Prasetiya Mulya Institute of Management which offered the MBA program was renamed to the Sekolah Tinggi Manajemen Prasetiya Mulya (Prasetiya Mulya School of Management), in compliance with new regulations of Indonesia Ministry of Education. These new regulations also required the replacement of Master of Business Administration (MBA) degree with a Magister Management (MM). Meanwhile, the executive learning programs which not offer the academic degree still be managed under Lembaga Manajemen Prasetiya Mulya (Prasetiya Mulya Institute of Management). In 2000, with an objective to promote the existence of business school in Indonesia, we decided to use Prasetiya Mulya Business School as our corporate brand. In order to strengthen the brand of Prasetiya Mulya Business School, we are offering our services in business management education either for academic degree or executive programs under single brand.</p>\r\n\r\n<p>The enhancement of our services in academic programs as well as in the executive programs, the escalation of quality requirement in both programs, the increasing flexibility needed to cope with the business dynamics and the burgeoning demand of contextualization and customized solution in developing business people certainly require full hearted people, a focus management team and specific competencies to be developed further. All of these things are necessitated to improve our services, to enhance the impact of the solution and to maintain our commitment in developing human asset value of the business. This was what we have done since 2009 to enhance our services to Indonesia business world in non academic development programs.</p>\r\n\r\n<p>With more than 30 years experiences in partnering with numerous companies in developing reliable talents and with, the continuous development in the management knowledge and business contextualization Prasetiya Mulya Executive Learning Institute, formerly known as Lembaga Manajemen (Prasetiya Mulya Institute of Management), is ready for partnering with you to develop a higher value of human asset in your company, not only to improve the business performance but also to enhance the contribution in transforming Indonesia business world better.</p>\r\n'),

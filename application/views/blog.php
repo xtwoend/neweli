@@ -2,46 +2,40 @@
 		<nav id="breadcrumb" class="cf">
 			<div>
 				<a href="#">Home</a> &raquo;
-				<?php echo $page->title; ?>
+				What they say
 			</div>
 		</nav>
 
 		<article id="blog" class="cf">
 			<div class="left">
-				<h1>News & Event's</h1>
-				@if($posts)
-					@foreach( $posts->results as $post )
+				<h1>What They Say</h1>
+				<?php if($posts): ?>
+					<?php foreach( $posts as $post ): ?>
 					<div class="item">
+						<div class="subitem">
+						<?php echo date('M j, Y ',strtotime($post->created_at)) ?> | by:  <?php echo $this->authentication->get_fullname($post->created_by) ?>  
+						</div>
+						<h2><?php echo lanchor('what-they-say/read/'.$post->url, $post->title); ?></h2>
 						
-						<h2>{{HTML::link('news/'.$post->slug, $post->title) }}</h2>
-						<?php
-							if($post->uploads){
-								foreach($post->uploads as $up){
-									echo '<img class="section_image" src="'.asset('uploads/').$up->thumb_filename.'" />';
-								}
-							}
-						?>
-						<p>
-							{{Str::words(strip_tags($post->content), 50)}}
-						</p>
-						{{HTML::link('news/'.$post->slug, 'detail',  array('class' => 'readmore')) }}&gt;
+						<?php echo word_limiter($post->content, 20); ?> 
+						<?php echo lanchor('what-they-say/read/'.$post->url, 'detail'); ?> &gt;&gt;
 						<div class="cf"></div>
 						
 					</div><!--item-->
-					@endforeach
+					<?php endforeach; ?>
 				<br>
-					{{ $posts->links(); }}
-				@endif
+		
+				<?php endif; ?>
 
 
 			</div><!--left-->
 
 			<div class="right">
 				<ul>
-					<li>latest news</li>
-					@foreach( $lastposts as $post )	
-						<li>{{HTML::link('news/'.$post->slug, $post->title);}}</li>
-					@endforeach
+					<li>latest posting</li>
+					<?php foreach( $posts as $post ): ?>	
+						<li><?php echo lanchor('what-they-say/read/'.$post->url, $post->title); ?></li>
+					<?php endforeach ?>
 				</ul>
 			</div><!--right-->
 		</article>

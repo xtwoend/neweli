@@ -1,4 +1,4 @@
-		<?php 
+<?php 
 		$footerlefts = $this->page_lang->gets(array('page.menu_id'=>6, 'page_lang.lang'=> $this->lang->mci_current(), 'page.parent' => 0), array('order'=>'asc'));
 		$footerrights = $this->page_lang->gets(array('page.menu_id'=>7, 'page_lang.lang'=> $this->lang->mci_current(), 'page.parent' => 0), array('order'=>'asc'));
 		?>
@@ -35,16 +35,12 @@
 							echo '</li>';
 						}
 						?>	
-					<li><a href="">&copy; ELI - Prasetiya Mulya - 2012</a></li>			
+					<li><a href="<?php echo base_url() ?>">&copy; ELI - Prasetiya Mulya - 2012</a></li>			
 				</ul>
 			</div><!--footer-bottom-->
 		</footer>
 
     </body>
-
-	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write("<script src='<?php echo $this->config->item('js') ?>jquery-1.8.2.min.js'>\x3C/script>")</script>
 
 	<script src="<?php echo $this->config->item('js') ?>jquery.hoverscroll.js"></script>
 	<script src="<?php echo $this->config->item('js') ?>slides.min.jquery.js"></script>

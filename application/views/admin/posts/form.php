@@ -18,9 +18,9 @@
 <div class="container-fluid">
     <div class="row-fluid">            
           <div class="control-group">
-            <label class="control-label" for="layout">News Title</label>
+            <label class="control-label" for="layout">Post Title</label>
             <div class="controls">
-              <input type="text" placeholder="Enter News Title..." id="news_title" name="news_title" id="layout" value="<?php echo ($create) ? '': $news->news_title; ?>"> 
+              <input type="text" placeholder="Enter News Title..." id="news_title" name="post_name" id="layout" value="<?php echo ($create) ? '': $news->post_name; ?>"> 
             </div>
           </div>
           <div class="control-group">
@@ -28,32 +28,7 @@
                 <div class="controls">
                   <input type="text" name="url" id="url" class="url" value="<?php echo ($create) ? '': $news->url ?>">
                 </div>
-          </div>
-
-          <div class="control-group">
-              <label for="start_date" class="control-label">Start Event's</label>              
-              <div class="controls">
-			  <div id="datetimepicker1" class="input-append">
-				<input data-format="yyyy-MM-dd HH:mm:ss" size="3" type="text" placeholder="Enter start event" name="start_date" value="<?php echo ($create) ? '': $news->start_date ?>" style="width: 160px;"></input>
-				<span class="add-on">
-				  <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
-				</span>
-			  </div> -	
-			  <div id="datetimepicker2" class="input-append" >
-				<input data-format="yyyy-MM-dd HH:mm:ss" type="text" placeholder="Enter End event" name="end_date" value="<?php echo ($create) ? '': $news->end_date ?>" style="width: 160px;"></input>
-				<span class="add-on">
-				  <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
-				</span>
-			  </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label" for="is_home">Full Day Event</label>
-            <div class="controls">
-              <input type="checkbox" name="fullday" id="is_home" <?php echo ($create) ? '' : ($news->fullday) ? 'checked': '' ?> >
-            </div>
-          </div>
-       
+          </div> 
     </div>
     <div class="row-fluid">
 
@@ -68,14 +43,14 @@
         
         <h4>Page in <?php echo $lang->language;?></h4>
             <div class="control-group">
-              <label class="control-label" for="article-title">Article Title</label>
+              <label class="control-label" for="article-title">Post Title</label>
               <div class="controls">
                 <input type="text" placeholder="Enter Article Title Content..." name="article_title_<?php echo $lang->lang;?>" id="title_<?php echo $lang->lang;?>" value="<?php echo ($create) ? '': (($lang->lang)== 'id' ? $news_all[1]->title : $news_all[0]->title) ?>"> 
               </div>
             </div>
 
             <div class="control-group">
-              <label class="control-label" for="sub-article-title">Sub Article Title</label>
+              <label class="control-label" for="sub-article-title">Sub Post Title</label>
               <div class="controls">
                 <input type="text" name="sub_article_<?php echo $lang->lang;?>" id="online" placeholder="Enter Sub Article Content..." value="<?php echo ($create) ? '': (($lang->lang)== 'id' ? $news_all[1]->subtitle : $news_all[0]->subtitle) ?>">
               </div>
@@ -129,9 +104,7 @@
     
     <script type="text/javascript">
         $(function () {
-           
-                $('.url').slugify('#news_title');	
-
+            $('.url').slugify('#news_title');	
         });
     </script>
 	<script type="text/javascript">

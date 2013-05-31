@@ -6,16 +6,13 @@ class Posts extends Admin_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(array('mposts','mlang','menu','news_lang'));
+		$this->load->model(array('mposts','mlang','menu','post_lang'));
 		$user_identifier = $this->session->userdata('identifier');
 	}	
 
 	function index()
 	{
-		// load language file
-		$this->lang->load('about');
- 		$data['i18n'] = $this->lang->mci_current();
- 		$data['news'] = $this->mnews->all(array(), array('id' => 'desc'));
+ 		$data['posts'] = $this->mposts->all(array(), array('id' => 'desc'));
  		
 		
 		$this->template
@@ -25,28 +22,26 @@ class Posts extends Admin_Controller {
 			->set_partial('footer', 'partials/footer')
 			->build($this->module.'index',$data);
 	}
-
+	
 	function add()
 	{
 		if($_POST){
 		
 			$arrdata =  array(						
-						'news_title'	=>  $this->input->post('news_title'),
-						'start_date'	=>  $this->input->post('start_date'),
-						'end_date' 		=>  $this->input->post('end_date'),
-						'fullday'		=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
-						'user_id'		=>  $user_identifier
+						'post_name'	=>  $this->input->post('post_name'),
+						'url'	=>  $this->input->post('url'),
+						'created_by' 		=>  $this->session->userdata('identifier'),
+						'created_at'		=>  date('Y-m-d H:i:s'),
 						);
-			$news_id = $this->mnews->add($arrdata);
+			$post_id = $this->mposts->add($arrdata);
 			
-			if($news_id)
+			if($post_id)
 			{
 				foreach ($this->mlang->get('id, lang') as $lange) {
 					
 					$newslangdata = array(
 									'lang' => $lange->lang,									
-									'news_id' => $news_id,	
-									'url' 		=>  $this->input->post('url_'.$lange->lang),									
+									'post_id' => $post_id,									
 									'title'	=> $this->input->post('article_title_'.$lange->lang),
 									'subtitle' => $this->input->post('sub_article_'.$lange->lang),									
 									'content' => $this->input->post('content_'.$lange->lang),
@@ -56,12 +51,12 @@ class Posts extends Admin_Controller {
 									
 						);
 
-					$this->news_lang->add($newslangdata);
+					$this->post_lang->add($newslangdata);
 
 				}
 			}
 
-			redirect('admin/news');
+			redirect('admin/posts');
 			
 		}
 
@@ -83,17 +78,17 @@ class Posts extends Admin_Controller {
 		
 		if($_POST){
 			$arrdata =  array(						
-						'news_title'=>  $this->input->post('news_title'),
-						'start_date'=>  $this->input->post('start_date'),
-						'end_date' 	=>  $this->input->post('end_date'),
-						'fullday'	=>  ($this->input->post('fullday',FALSE)) ? 1 : 0
+						'post_name'	=>  $this->input->post('post_name'),
+						'url'	=>  $this->input->post('url'),
+						//'created_by' 		=>  $this->session->userdata('identifier'),
+						'updated_at'		=>  date('Y-m-d H:i:s'),
 						);
 
-			$edited = $this->mnews->edit($id , $arrdata );
+			$edited = $this->mposts->edit($id , $arrdata );
+
 			foreach ($this->mlang->get('id, lang') as $lange) {
 				
-					$newslangdata = array(									
-									'url' 		=>  $this->input->post('url_'.$lange->lang),									
+					$newslangdata = array(														
 									'title'	=> $this->input->post('article_title_'.$lange->lang),
 									'subtitle' => $this->input->post('sub_article_'.$lange->lang),									
 									'content' => $this->input->post('content_'.$lange->lang),
@@ -103,7 +98,7 @@ class Posts extends Admin_Controller {
 
 						);
 
-					$this->news_lang->edit($id ,$newslangdata, 'news_id', array('lang' => $lange->lang));
+					$this->post_lang->edit($id ,$newslangdata, 'post_id', array('lang' => $lange->lang));
 
 				}
 			
@@ -113,11 +108,11 @@ class Posts extends Admin_Controller {
 				$this->session->set_flashdata('message', 'menu gagal di ubah!');
 			}
 			
-			redirect('admin/news');
+			redirect('admin/posts');
 		}
 
-		$data['news'] = $this->mnews->find(array('id'=>$id));
-		$data['news_all'] = $this->mnews->findnews(array('id'=>$id));
+		$data['news'] = $this->mposts->find(array('id'=>$id));
+		$data['news_all'] = $this->mposts->findpost(array('id'=>$id));
 		$data['language'] = $this->mlang->get();
 		
 		$data['create'] = false;
@@ -128,19 +123,21 @@ class Posts extends Admin_Controller {
 			->set_partial('footer', 'partials/footer')
 			->build($this->module. 'form', $data);
 	}
-	
+
 	function remove($id=false)
 	{
 
-		if($this->mnews->delete($id))
+		if($this->mposts->delete($id))
 		{	
-			$this->session->set_flashdata('message', 'News/Events berhasil di hapus!');
+			$this->post_lang->delete($id,'post_id');
+			$this->session->set_flashdata('message', 'Posting berhasil di hapus!');
 			
 		}else{
-			$this->session->set_flashdata('message', 'News/Events gagal di hapus!');
+			$this->session->set_flashdata('message', 'Posting gagal di hapus!');
 		}
-		redirect('admin/news');
+		redirect('admin/posts');
 	}
+	
 }
  
 /* End of file */

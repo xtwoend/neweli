@@ -19,12 +19,12 @@
 						start: <?php echo date('M j, Y ',strtotime($new->start_date)) ?> | end: <?php echo date('M j, Y ',strtotime($new->end_date)) ?> 
 					</div>
 					<h2><?php echo lanchor('news/read/'.$new->url, $new->title); ?></h2>
-					<img src="images/live.jpg" height="" width="" />
+					
 					<?php echo word_limiter($new->content, 20); ?>
 					<?php echo lanchor('news/read/'.$new->url, 'detail'); ?> &gt;&gt;
 				</div><!--item-->
 				<?php } ?>
-
+				<!--
 				<ul id="pagination">
 					<li><a href="#">&lt; Prev : </a></li>
 					<li class="active"><a href="#">1</a></li>
@@ -37,6 +37,7 @@
 					<li><a href="#">10</a></li>
 					<li><a href="#">Next : &gt;</a></li>
 				</ul>
+				-->
 			</div><!--left-->
 
 			<div class="right">

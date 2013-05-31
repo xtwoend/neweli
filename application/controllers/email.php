@@ -11,6 +11,13 @@ class Email extends Public_Controller {
 	{	
 		
 	}	
+
+	function send()
+	{
+		
+
+		redirect('contact-us');
+	}
 }
  
 /* End of file */
