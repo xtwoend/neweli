@@ -39,7 +39,6 @@
 		<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write("<script src='<?php echo $this->config->item('js') ?>jquery-1.8.2.min.js'>\x3C/script>")</script>
-
     </head>
     <body>
 
@@ -49,9 +48,7 @@
 
     	<?php 
 		$topmenus = $this->page_lang->gets(array('page.menu_id'=>4, 'page_lang.lang'=> $this->lang->mci_current(), 'page.parent' => 0), array('order'=>'asc'));
-		
 		?>
-					
 
 		<header class="cf">
 			<div id="header" class="cf">
@@ -62,7 +59,11 @@
 						<!--<li><?php echo lanchor('', 'Home'); ?></li>-->
 						<?php foreach ($topmenus as $topmenu) {
 							echo '<li>';
-							echo lanchor($topmenu->url, $topmenu->nav_title); 
+							if($topmenu->page_name == 'programs') {
+								echo lanchor('#', $topmenu->nav_title, 'id="programs"');
+							} else {
+								echo lanchor($topmenu->url, $topmenu->nav_title); 
+							}
 							echo '</li>';
 						}
 						?>
@@ -76,6 +77,30 @@
 						<li><a href="#">blog</a></li>
 						-->
 					</ul>
+					<style type="text/css">
+					#nav_programs {
+						background: #fff;
+						border: 1px solid #ccc;
+						padding: 5px;
+						position: absolute;
+						margin-top: -25px;
+						margin-left: 190px;
+					}
+					#menu-top #nav_programs li { border-right: none; display: block; width: 120px; }
+					#nav_programs li:hover { background: #ccc; }
+					</style>
+					<ul id="nav_programs" style="display:none">
+						<?php //$programs = $this->mprogram_lang->gets(array('program_lang.lang'=>$this->lang->mci_current()), array('order'=>'asc')); ?>
+						<?php //foreach($programs as $program): ?>
+						<li><a href="#"><?php //echo $program->program ?>try</a></li>
+						<li><a href="#"><?php //echo $program->program ?>try</a></li>
+						<?php //endforeach ?>
+					</ul>
+					<script type="text/javascript">
+					$('#programs').click(function() {
+						$('#nav_programs').toggle()
+					})
+					</script>
 				</nav>
 				<select name="menu" id="select" class="dk">
 					<?php foreach ($topmenus as $topmenu) { ?>
