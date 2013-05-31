@@ -9,7 +9,7 @@ class Filemanager extends Admin_Controller {
 	function index()
 	{
 		// load language file
-		$this->lang->load('about');
+		
  		$data['i18n'] = $this->lang->mci_current();
 
  		$user_identifier = $this->session->userdata('identifier');

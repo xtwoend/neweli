@@ -32,6 +32,7 @@ class News extends Admin_Controller {
 		
 			$arrdata =  array(						
 						'news_title'	=>  $this->input->post('news_title'),
+						'url'			=>  $this->input->post('url'),
 						'start_date'	=>  $this->input->post('start_date'),
 						'end_date' 		=>  $this->input->post('end_date'),
 						'fullday'		=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
@@ -45,8 +46,7 @@ class News extends Admin_Controller {
 					
 					$newslangdata = array(
 									'lang' => $lange->lang,									
-									'news_id' => $news_id,	
-									'url' 		=>  $this->input->post('url_'.$lange->lang),									
+									'news_id' => $news_id,									
 									'title'	=> $this->input->post('article_title_'.$lange->lang),
 									'subtitle' => $this->input->post('sub_article_'.$lange->lang),									
 									'content' => $this->input->post('content_'.$lange->lang),
@@ -84,16 +84,17 @@ class News extends Admin_Controller {
 		if($_POST){
 			$arrdata =  array(						
 						'news_title'=>  $this->input->post('news_title'),
+						'url'		=>  $this->input->post('url'),
 						'start_date'=>  $this->input->post('start_date'),
 						'end_date' 	=>  $this->input->post('end_date'),
-						'fullday'	=>  ($this->input->post('fullday',FALSE)) ? 1 : 0
+						'fullday'	=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
+						'user_id'	=>  $user_identifier
 						);
 
 			$edited = $this->mnews->edit($id , $arrdata );
 			foreach ($this->mlang->get('id, lang') as $lange) {
 				
-					$newslangdata = array(									
-									'url' 		=>  $this->input->post('url_'.$lange->lang),									
+					$newslangdata = array(																	
 									'title'	=> $this->input->post('article_title_'.$lange->lang),
 									'subtitle' => $this->input->post('sub_article_'.$lange->lang),									
 									'content' => $this->input->post('content_'.$lange->lang),
@@ -108,9 +109,9 @@ class News extends Admin_Controller {
 				}
 			
 			if($edited){
-				$this->session->set_flashdata('message', 'menu berhasil di ubah!');
+				$this->session->set_flashdata('message', 'News/Events berhasil di ubah!');
 			}else{
-				$this->session->set_flashdata('message', 'menu gagal di ubah!');
+				$this->session->set_flashdata('message', 'News/Events gagal di ubah!');
 			}
 			
 			redirect('admin/news');
@@ -134,6 +135,7 @@ class News extends Admin_Controller {
 
 		if($this->mnews->delete($id))
 		{	
+			$this->news_lang->delete($id, 'news_id');
 			$this->session->set_flashdata('message', 'News/Events berhasil di hapus!');
 			
 		}else{

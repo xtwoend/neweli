@@ -5,6 +5,7 @@ class Pages extends Public_Controller {
 	{
 		parent::__construct();
 		$this->load->model(array('page','page_lang','menu','section','section_lang','msliders','msliders_lang'));
+		$this->lang->load('contact');
 	}	
 
 	function index()

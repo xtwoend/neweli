@@ -18,10 +18,5 @@ class Mprograms extends MY_Model {
 		// return $this->_get_row($user_data);
 		return $this->db->get()->result();
 	}
-	// optional (if not set its plural of your class name)
-	// protected $table	= 'table';
-	
-	// optional (if not set its 'id')
-	// protected $primary 	= 'primarykey';
 	
 }

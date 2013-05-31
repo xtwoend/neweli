@@ -25,7 +25,7 @@ class News extends Public_Controller {
 	{
 		if(!$slug) redirect('news');
 
-		$newsdata = $this->news_lang->find(array('url'=>$slug));
+		$newsdata = $this->news_lang->newsfind(array('url'=>$slug, 'lang'=>$this->lang->mci_current()));
 		if(!$newsdata)  redirect('news');
 		$data['news']= $this->news_lang->newsgets('*',array('lang'=>$this->lang->mci_current()),array('start_date'=>'desc'),0,10);
 		$data['read'] = $newsdata;
