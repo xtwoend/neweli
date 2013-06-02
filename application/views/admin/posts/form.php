@@ -14,7 +14,7 @@
 </div>
 <?php } ?>
 
-<form class="form-horizontal" method="post">
+<form class="form-horizontal" method="post" enctype="multipart/form-data">
 <div class="container-fluid">
     <div class="row-fluid">            
           <div class="control-group">
@@ -29,6 +29,15 @@
                   <input type="text" name="url" id="url" class="url" value="<?php echo ($create) ? '': $news->url ?>">
                 </div>
           </div> 
+          <div class="control-group">
+                  <label for="content" class="control-label">Post Image</label>              
+                  <div class="controls">
+                    <?php echo form_upload('newsimage') ?> 
+                    <?php if(!$create){ ?>
+                      <img width="80" src="<?php echo base_url() ?>file/image/<?php echo $news->img_src ?>">
+                    <?php } ?>
+                  </div>
+          </div>
     </div>
     <div class="row-fluid">
 

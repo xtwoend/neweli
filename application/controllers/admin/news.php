@@ -7,7 +7,6 @@ class News extends Admin_Controller {
 	{
 		parent::__construct();
 		$this->load->model(array('mnews','mlang','menu','news_lang'));
-		$user_identifier = $this->session->userdata('identifier');
 	}	
 
 	function index()
@@ -29,19 +28,21 @@ class News extends Admin_Controller {
 	function add()
 	{
 		if($_POST){
-		
+			
+			$image = $this->do_upload();
 			$arrdata =  array(						
 						'news_title'	=>  $this->input->post('news_title'),
 						'url'			=>  $this->input->post('url'),
 						'start_date'	=>  $this->input->post('start_date'),
 						'end_date' 		=>  $this->input->post('end_date'),
 						'fullday'		=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
-						'user_id'		=>  $user_identifier
+						'user_id'		=>  $this->session->userdata('identifier'),
+						'img_src'		=>  $image['file_name'],
 						);
 			$news_id = $this->mnews->add($arrdata);
 			
 			if($news_id)
-			{
+			{	
 				foreach ($this->mlang->get('id, lang') as $lange) {
 					
 					$newslangdata = array(
@@ -61,7 +62,7 @@ class News extends Admin_Controller {
 				}
 			}
 
-			redirect('admin/news');
+			//redirect('admin/news');
 			
 		}
 
@@ -82,16 +83,24 @@ class News extends Admin_Controller {
 		if(!$id) redirect('admin/news');
 		
 		if($_POST){
+			$imagearray = array();
+			if(isset($_FILES['newsimage']['name']))
+			{
+				$image = $this->do_upload();
+				$imagearray = array('img_src'	=>  $image['file_name']);
+			}
+
 			$arrdata =  array(						
 						'news_title'=>  $this->input->post('news_title'),
 						'url'		=>  $this->input->post('url'),
 						'start_date'=>  $this->input->post('start_date'),
 						'end_date' 	=>  $this->input->post('end_date'),
 						'fullday'	=>  ($this->input->post('fullday',FALSE)) ? 1 : 0,
-						'user_id'	=>  $user_identifier
+						'user_id'		=>  $this->session->userdata('identifier'),
+						
 						);
 
-			$edited = $this->mnews->edit($id , $arrdata );
+			$edited = $this->mnews->edit($id , ($arrdata + $imagearray) );
 			foreach ($this->mlang->get('id, lang') as $lange) {
 				
 					$newslangdata = array(																	
@@ -143,6 +152,42 @@ class News extends Admin_Controller {
 		}
 		redirect('admin/news');
 	}
+
+
+	function do_upload(){
+
+	        // Load the library - no config specified here
+	        $this->load->library('upload');
+	 		
+	 		$datareturn  = array();
+	        // Check if there was a file uploaded - there are other ways to
+	        // check this such as checking the 'error' for the file - if error
+	        // is 0, you are good to code
+	       	if (isset($_FILES['newsimage']['name']))
+		        {
+		            // Specify configuration for File 1
+		            $config['upload_path'] = 'file/image/';
+		            $config['allowed_types'] = 'gif|jpg|png';
+		            $config['max_size'] = '1000';
+		            $config['max_width']  = '1024';
+		            $config['max_height']  = '1024';       
+		 			$config['encrypt_name'] = true;   
+		            // Initialize config for File 1
+		            $this->upload->initialize($config);
+		 
+		            // Upload file 1
+		            if ($this->upload->do_upload('newsimage'))
+		            {
+		                $datareturn = $this->upload->data();
+		            }
+		            else
+		            {
+		                $datareturn = $this->upload->data();
+		            }
+		        }
+	    	
+	    return $datareturn;
+	}	
 }
  
 /* End of file */

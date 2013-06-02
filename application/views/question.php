@@ -1,3 +1,11 @@
+
+		<nav id="breadcrumb" class="cf">
+			<div>
+				<a href="#">Home</a> &raquo;
+				Find your program
+			</div>
+		</nav>
+			
 <article id="question" class="cf">
 	<div class="left">
 		<h1>find your program</h1>
@@ -13,16 +21,17 @@
 				You education background are not in the business / management major
 			</div>
 		</div>-->
-		<form method="post" action="{{URL::current()}}">
+		<form method="post">
 		<ul>
 			<li>
 				<div class="left">q:</div>
 				<div class="right">
-					{{$question->question}}
+					<?php echo $question->question ?>
 					<ul>
-						@foreach(Questionoption::where_question_id($question->id)->get() as $option)
-							<li><input type="radio" name="answer" value="{{$option->id}}">{{$option->option}}</li>						
-						@endforeach
+						<?php foreach($this->mquestionoptions->get('id,option', array('question_id'=>$question->id))  as $option): ?>
+						
+							<li><input type="radio" name="answer" value="<?php echo $option->id ?>"><?php echo $option->option; ?></li>						
+						<?php endforeach; ?>
 					</ul>
 				</div>
 			</li>

@@ -49,7 +49,7 @@
     	<?php 
 		$topmenus = $this->page_lang->gets(array('page.menu_id'=>4, 'page_lang.lang'=> $this->lang->mci_current(), 'page.parent' => 0), array('order'=>'asc'));
 		?>
-
+		
 		<header class="cf">
 			<div id="header" class="cf">
 				<img id="logo" src="<?php echo $this->config->item('images') ?>logo-grey.jpg" title="Prasetiya Mulya Business School" alt="Prasetiya Mulya Business School" />
@@ -60,8 +60,10 @@
 						<?php foreach ($topmenus as $topmenu) {
 							echo '<li>';
 							if($topmenu->page_name == 'programs') {
-								echo lanchor('#', $topmenu->nav_title, 'id="programs"');
-							} else {
+								echo lanchor($topmenu->url, $topmenu->nav_title, 'id="programs"');
+							} else if($topmenu->url == 'registers'){
+								echo lanchor($topmenu->url, $topmenu->nav_title, 'id="register" class="rounded"');
+							} else{
 								echo lanchor($topmenu->url, $topmenu->nav_title); 
 							}
 							echo '</li>';
@@ -97,7 +99,7 @@
 						<?php //endforeach ?>
 					</ul>
 					<script type="text/javascript">
-					$('#programs').click(function() {
+					$('#programs').mouseover(function() {
 						$('#nav_programs').toggle()
 					})
 					</script>

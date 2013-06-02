@@ -40,12 +40,18 @@
 
 			<ul id="nav-middle">
 				<li>
-					<input type="button" class="rounded" name="download" value="download brochure" />
-					<input type="button" class="rounded" name="contact" value="contact us" />
+					<a href="<?php lecho('downloads');?>">
+						<input type="button" class="rounded" name="download" value="download brochure" />
+					</a>
+					<a href="<?php lecho('contact-us');?>">
+						<input type="button" class="rounded" name="contact" value="contact us" />
+					</a>
 				</li>
 				<li>
 					<span><a href="#">register online</a></span>
-					<input type="button" name="find" value="Find your programs" />
+					<a href="<?php lecho('questions');?>">
+						<input type="button" name="find" value="Find your programs"/>
+					</a>
 				</li>
 			</ul>
 		</header>

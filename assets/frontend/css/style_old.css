@@ -34,26 +34,26 @@ header { margin-top: 10px; }
     header #header { margin-bottom: 100px; position: relative; }
     header < nav#menu-headline { margin-bottom: 0; }
         header hr.top { display: none; }
-        header nav#menu-top { float:left; margin-left: 20px; width: 500px; }
+        header nav#menu-top { float:left; margin-left: 20px; width: 460px; }
             header nav#menu-top li { border-right: 1px solid #333; font-weight: bold; padding: 0 3px; }
-            header nav#menu-top li:nth-child(7) { border: none; }
+            header nav#menu-top li:nth-child(6) { border: none; }
             header nav#menu-top li#last-menu { visibility: hidden; }
                 header nav#menu-top li#last-menu select { text-transform: uppercase; }
             header nav#menu-top li a { color: #000; font-family: "Helvetica Neue", Helvetica, Verdana, Tahoma, Arial, sans-serif; }
             header nav#menu-top li a:hover, header nav#menu-top li a.active { color: #8cc63e; }
-            header nav#menu-top li a#register {
-                background: url(../images/button-top.png) center top repeat-x;
+            header nav#menu-top input[type=button] {
+                background: url(../images/button-top.png) left top no-repeat;
                 border: none;
                 cursor: pointer;
                 color: #ff7400;
                 font-size: 100%;
                 font-weight: bold;
                 height: 22px;
-                padding: 5px;
+                padding: 5px 0px;
                 text-transform: uppercase;
                 width: 62px;
             }
-            header nav#menu-top li a#register:hover {
+            header nav#menu-top input[type=button]:hover {
                 background: #e2e2e2;
             }
         header #login {
@@ -91,14 +91,6 @@ nav#breadcrumb { background: #ccc; margin-top: -70px; }
                 cursor: pointer;
                 height: 78px;
                 margin-top: 0;
-                -webkit-border-top-left-radius: 5px;
-                -webkit-border-top-right-radius: 5px;
-                -moz-border-radius-topleft: 5px;
-                -moz-border-radius-topright: 5px;
-                -khtml-border-radius-topleft: 5px;
-                -khtml-border-radius-topright: 5px;
-                border-top-left-radius: 5px;
-                border-top-left-radius: 5px;
             }
                 nav#menu-headline ul li a { color: #333; float: left; font-weight: bold; padding: 15px; }
                 nav#menu-headline ul li.active a, nav#menu-headline ul li:hover a { color: #000; }
@@ -139,7 +131,7 @@ nav#breadcrumb { background: #ccc; margin-top: -70px; }
                 padding: 5px;
                 padding-right: 10px;
             }
-                #nav-middle li:last-child span a { color: #666; font-weight: 700; text-transform: uppercase; }
+            #nav-middle li:last-child span a { color: #666; font-weight: 700; text-transform: uppercase; }
             #nav-middle li:last-child input[type=button] {
                 background: url(../images/button-right.png) center center no-repeat;
                 border: none;
@@ -152,10 +144,9 @@ nav#breadcrumb { background: #ccc; margin-top: -70px; }
                 text-align: left;
                 width: 252px;
             }
-
+          
 /* content */
-article.home
-{ display: block; margin: 100px auto; position: relative; width: 896px; }
+article#who, article#what, article#how, article#our, article#commitment { display: block; margin: 100px auto; position: relative; width: 896px; }
     fieldset h5 { color: #1c7d99; font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif; font-size: 160%; }
     fieldset .bottom-title { color: #808080; font-weight: 700; }
     fieldset p, fieldset ul { color: #333; display: block; margin-top: 20px; margin-left: 270px; }
@@ -201,8 +192,8 @@ article.home
                 text-align: left;
                 width: 252px;
             }
-    article#how-we-do-it ul { margin-left: 300px; }
-        article#how-we-do-it .info span {
+    article#how ul { margin-left: 300px; }
+        article#how .info span {
             float: left;
             font-family: Tahoma, Arial, sans-serif;
             font-weight: 700;
@@ -210,7 +201,6 @@ article.home
         }
 
 /* article common */
-article{ padding-top: 20px;  }
 article#aboutus { color: #333; }
     article#aboutus div.left { float: right; padding-top: 20px; overflow: hidden; width: 270px; }
         article#aboutus div.left #menu-about { display: none; }
@@ -298,59 +288,53 @@ article#detail {}
             }
         article#detail div.right ul li:first-child { font-size: 160%; padding-left: 5px; text-transform: uppercase; }
 
-/* program */
+/* question */
 article#program {}
-    article#program div.left, article#program div.right { padding-top: 0px; }
-    article#program div.left { border-right: 1px solid #666; float: left; width: 300px; }
+    article#program div.left, article#program div.right { padding-top: 20px; }
+    article#program div.left { float: left; width: 229px; }
         article#program div.left h2 { color: #09f; font-weight: normal; }
         article#program div.left div.line { font-weight: bold; font-size: 16px;margin: 10px 0; }
             article#program div.left span.dropcap { color: #999; font-size: 36px; font-weight: bold; position: relative; top: 8px; }
         article#program div.left h5 { letter-spacing: -1px; text-transform: uppercase; }
-        article#program ul {
+        article#program ol {
             counter-reset: li;
             list-style: none;
             *list-style: decimal;
             padding: 0;
             margin-bottom: 10px;
             text-shadow: 0 1px 0 rgba(255,255,255,.5);
-            
         }
-        article#program ul li ul {
+        article#program ol li a {
             position: relative;
-            padding: 5px 0 0px 20px;
-            text-decoration: none;
-        }
-        article#program ul li a {
-            position: relative;
-            /*border-left: 1px solid black;*/
             display: block;
+            background: #fff;
             color: #444;
             padding: 5px 0 5px 28px;
             text-decoration: none;
         }
-        article#program ul li a:hover {
+        article#program ol li a:hover {
             background: #d2e3b1;
         }  
-        article#program ul li a:before {
+        article#program ol li a:before {
             content: counter(li);
             counter-increment: li;
             font-weight: bold;
             position: absolute; 
             left: 0;
             top: 0;
-           
+            background: #fff;
             padding: 5px 10px;
             text-align: center;
             font-weight: bold;
         }
-        article#program ul li a:after {
+        article#program ol li a:after {
             position: absolute; 
             content: '';
             border: 1px solid transparent;
             left: 0;
             top: 0;
         }
-        article#program ul li a:hover:after {
+        article#program ol li a:hover:after {
             background: #d2e3b1;
             content: counter(li);
             position: absolute; 
@@ -359,7 +343,7 @@ article#program {}
             padding: 5px 10px;
             text-align: center;
         }
-    article#program div.right { float: right; padding-top: 30px; padding-left: 10px; width: 580px; }
+    article#program div.right { float: right; border-left: 1px solid #666; padding-top: 30px; padding-left: 10px; width: 646px; }
         article#program div.right h1, article#program div.right h3 { font-family: Helvetica, Arial, sans-serif; }
         article#program div.right h1 { border-bottom: 5px solid #999; margin-bottom: 20px; text-transform: uppercase; }
         article#program div.right h3 { color: #1c7d99; font-weight: normal; text-transform: uppercase; }
@@ -376,54 +360,17 @@ article#program {}
         article#program div.right input[type=button]:hover, article#program div.right input[type=button]:active { background: #ccc; }
 
 /* step2 */
-div#step2 { padding-top: 30px; }
-    div#step2 h1 { text-transform: uppercase; font-size: 150%}
-    div#step2 h2 { color: #1c7d99; margin-bottom: 20px; font-size: 120%; }
-    div#step2 h3 { font-size: 140%; }
-    div#step2 hr#dasdot { color: #87651c; border-style: dotted;}
-    div#step2 a { text-decoration: underline; margin: 60px;}
-    div#step2 ul li {
+article#step2 { padding-top: 30px; }
+    article#step2 h1 { border-bottom: 3px solid #999; margin-bottom: 10px; text-transform: uppercase; }
+    article#step2 h2 { color: #1c7d99; margin-bottom: 20px; }
+    article#step2 ul li {
         background: #dcdcdc;
         border: 1px solid #ccc;
         float: left;
         padding: 5px;
         position: relative;
     }
-
-    div#step2 div.addpartisipan { text-decoration: underline; float: right; }
-    div#step2 div.content-add { background-color: #fff;}
-    div#step2 div.add-participan { margin-left: 90px; padding: 40px 30px 10px 10px; }
-        div#step2 select.program  {
-                background: transparent;
-                border: 1px solid #ccc;
-                height: 30px;
-                overflow: hidden;
-                padding: 0;
-                top: 0;
-                visibility: visible;
-                width: 200px;
-                float: left;
-        }
-        div#step2 table#participanlist {width: 100%; border-bottom: 1px solid; border-right: 1px solid; }
-        div#step2 table#participanlist th { background-color: #a7c966; text-transform: uppercase; font-size: 90%; font-weight: bold; 
-            border-bottom: solid 3px #6c8836; padding-left: 15px;
-        }
-
-        div#step2 table#participanlist td { border-bottom: solid 1px; border-left: solid 1px; padding-left: 15px; }
-
-        div#step2 div.content div#subtotal { float: right;}
-        
-        div#step2 select.periode  {
-                background: transparent;
-                border: 1px solid #ccc;
-                height: 30px;
-                overflow: hidden;
-                padding: 0;
-                top: 0;
-                visibility: visible;
-                width: 200px;
-        }
-        div#step2 ul li a {
+        article#step2 ul li a {
             background: #f0f0f0;
             border: 1px solid #ccc;
             display: block;
@@ -434,7 +381,7 @@ div#step2 { padding-top: 30px; }
             position: relative;
             white-space: nowrap;
         }
-        div#step2 ul li:nth-child(2) a:before {
+        article#step2 ul li:nth-child(2) a:before {
             position: absolute;
             content: "";
             left: 0;
@@ -445,7 +392,7 @@ div#step2 { padding-top: 30px; }
             border-left: 10px solid #dcdcdc;
             border-bottom: 15px solid transparent;
         }
-        div#step2 ul li span.down {
+        article#step2 ul li span.down {
             position: absolute;
             content: "";
             top: 10px;
@@ -457,9 +404,9 @@ div#step2 { padding-top: 30px; }
             border-right: 10px solid transparent;
             border-top: 10px solid #ccc;
         }
-            div#step2 ul li a:hover { background: #333; color: #fff; }
-            div#step2 ul li ul { left: -99999px; position: absolute; }
-                div#step2 ul li:hover ul {
+            article#step2 ul li a:hover { background: #333; color: #fff; }
+            article#step2 ul li ul { left: -99999px; position: absolute; }
+                article#step2 ul li:hover ul {
                     margin-top: 5px;
                     left: -2px;
                     border-top: none;
@@ -467,18 +414,18 @@ div#step2 { padding-top: 30px; }
                     border-right: 1px solid #ccc;
                     border-bottom: 1px solid #ccc;
                 }
-                div#step2 ul li ul li {
+                article#step2 ul li ul li {
                     border-top: none;
                     border-left: 1px solid #ccc;
                     border-right: 1px solid #ccc;
                     border-bottom: 1px solid #ccc;
                     width: 100%;
                 }
-                div#step2 ul li ul li a { background: #dcdcdc; border: none; }
-                div#step2 ul li ul li a:before { border: none; }
-        div#step2 div.content { margin-top: 30px; margin-left: 50px; margin-bottom: 50px; }
-        div#step2 div.content div.line { font-weight: bold; font-size: 16px;margin: 10px 0; }
-            div#step2 div.content div.line span.dropcap {
+                article#step2 ul li ul li a { background: #dcdcdc; border: none; }
+                article#step2 ul li ul li a:before { border: none; }
+        article#step2 div.content { margin-top: 30px; margin-left: 50px; margin-bottom: 50px; }
+        article#step2 div.content div.line { font-weight: bold; font-size: 16px;margin: 10px 0; }
+            article#step2 div.content div.line span.dropcap {
                 color: #999;
                 float: left;
                 font-size: 36px;
@@ -487,8 +434,7 @@ div#step2 { padding-top: 30px; }
                 margin-right: 3px;
                 top: 8px;
             }
-            div#step2 div.content div.line p { font-weight: normal; margin-left: 30px; }
-
+            article#step2 div.content div.line p { font-weight: normal; margin-left: 30px; }
 
 /* step3 */
 article#step3 { padding-top: 30px; }
@@ -577,29 +523,6 @@ article#step3 { padding-top: 30px; }
 article#question { font-family: Arial, sans-serif; padding-top: 30px; padding-bottom: 50px; }
     article#question h1 { border-bottom: 3px solid #999; margin-bottom: 10px; text-transform: uppercase; }
     article#question h4 { color: #1c7d99; margin-bottom: 20px; }
-    article#question div.left div.message { display: block; }
-        article#question div.left div.message div { border: 1px solid #666; float: left; margin-right: 10px; padding: 3px 10px; }
-            article#question div.left div.message div img { vertical-align: middle; }
-        article#question div.left div.message div.success {
-            background: #8dc800; /* Old browsers */
-            background: -moz-linear-gradient(top,  #8dc800 0%, #6ca403 86%, #7bb203 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8dc800), color-stop(86%,#6ca403), color-stop(100%,#7bb203)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* IE10+ */
-            background: linear-gradient(to bottom,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8dc800', endColorstr='#7bb203',GradientType=0 ); /* IE6-9 */
-        }
-        article#question div.left div.message div.error {
-            background: #ececec; /* Old browsers */
-            background: -moz-linear-gradient(top,  #ececec 0%, #cecece 86%, #e0e0e0 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(86%,#cecece), color-stop(100%,#e0e0e0)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(top,  #ececec 0%,#cecece 86%,#e0e0e0 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(top,  #ececec 0%,#cecece 86%,#e0e0e0 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(top,  #ececec 0%,#cecece 86%,#e0e0e0 100%); /* IE10+ */
-            background: linear-gradient(to bottom,  #ececec 0%,#cecece 86%,#e0e0e0 100%); /* W3C */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#e0e0e0',GradientType=0 ); /* IE6-9 */
-        }
     article#question ul { margin: 30px 0; }
     article#question ul li {
         float: left;
@@ -620,184 +543,11 @@ article#question { font-family: Arial, sans-serif; padding-top: 30px; padding-bo
             font-size: 160%;
             font-weight: 700;
         }
-            article#question ul li ul li {
-                margin-left: 50px;
-                margin-top: 20px;
+            article#question ul li div.group-answer div.answer {
+                border: 1px solid #ccc;
+                float: left;
+                padding: 5px;
             }
-                article#question ul li ul li {
-                    float: left;
-                    margin-right: 10px;
-                    font-size: 70%;
-                    font-weight: 700;
-                    margin-top: 0px;
-                }
-                    article#question ul li ul li a {
-                        display: block;
-                        font-family: Helvetica, Arial, sans-serif;
-                        padding: 3px 12px;
-
-                    }
-                    article#question ul li div.group-answer div.answer a:hover, article#question ul li ul li a.active {
-                        background: #a2a2a2;
-                        border: 1px solid #999;
-                        border-top: 3px solid #666;
-                    }
-
-    article#question div.left div.back { display: block; float: left; }
-        article#question div.left div.back a { text-decoration: underline; }
-        article#question div.left form div.submit {
-                    float: right;
-                    margin-top: 20px;
-                    text-align: right;
-                    float: left;
-                    width: 896px;
-                    background: #ebebeb; /* Old browsers */
-                    background: -moz-linear-gradient(left,  #ebebeb 0%, #ebebeb 35%, #dddddd 75%, #ebebeb 100%); /* FF3.6+ */
-                    background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ebebeb), color-stop(35%,#ebebeb), color-stop(75%,#dddddd), color-stop(100%,#ebebeb)); /* Chrome,Safari4+ */
-                    background: -webkit-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* Chrome10+,Safari5.1+ */
-                    background: -o-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* Opera 11.10+ */
-                    background: -ms-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* IE10+ */
-                    background: linear-gradient(to right,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* W3C */
-                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#ebebeb',GradientType=1 ); /* IE6-9 */
-                }
-                    article#question div.left form div.submit input[type="submit"] {
-                        border: 1px solid #ccc;
-                        font-weight: bold;
-                        padding: 15px 25px;
-                        background: #8dc800; /* Old browsers */
-                        background: -moz-linear-gradient(top,  #8dc800 0%, #6ca403 86%, #7bb203 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8dc800), color-stop(86%,#6ca403), color-stop(100%,#7bb203)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* IE10+ */
-                        background: linear-gradient(to bottom,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8dc800', endColorstr='#7bb203',GradientType=0 ); /* IE6-9 */
-                    }
-                    article#question div.left form div.submit input[type="submit"]:active, article#registration div.left div.content form div.submit input[type="submit"]:hover {
-                        cursor: pointer;
-                        background: #6ca403; /* Old browsers */
-                        background: -moz-linear-gradient(top,  #6ca403 0%, #8dc800 32%, #7bb203 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6ca403), color-stop(32%,#8dc800), color-stop(100%,#7bb203)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* IE10+ */
-                        background: linear-gradient(to bottom,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ca403', endColorstr='#7bb203',GradientType=0 ); /* IE6-9 */
-                    }
-
-
-/* registration */
-article#registration { font-family: Arial, sans-serif; padding-top: 30px; padding-bottom: 50px; }
-    article#registration div.left { display: block; .padding-top: 20px; }
-    article#registration div.right { display: block; .padding-top: 20px; width: 400px;}
-    article#registration div.left nav#menu {
-        background: url(../images/tab.jpg) left bottom repeat-x;
-        height: 78px;
-        .margin: 80px 0 0 0;
-        .position: fixed;
-        .top: 60px;
-        width: 896px;
-        .z-index: 9;
-    }   
-
-
-        article#registration div.left nav#menu ul li {
-            float: left;
-            font-family: Helvetica, Verdana, Tahoma, Arial, sans-serif;
-            height: 78px;
-            margin-top: 10px;
-        }
-            article#registration div.left nav#menu li.active, article#registration div.left nav#menu li:hover {
-                background: url(../images/tab-active.png) left top repeat-x;
-                cursor: pointer;
-                height: 78px;
-                margin-top: 0;
-                -webkit-border-top-left-radius: 5px;
-                -webkit-border-top-right-radius: 5px;
-                -moz-border-radius-topleft: 5px;
-                -moz-border-radius-topright: 5px;
-                -khtml-border-radius-topleft: 5px;
-                -khtml-border-radius-topright: 5px;
-                border-top-left-radius: 5px;
-                border-top-left-radius: 5px;
-            }
-                article#registration div.left nav#menu ul li a { color: #333; float: left; font-weight: bold; padding: 15px; }
-                article#registration div.left nav#menu ul li.active a, article#registration div.left nav#menu ul li:hover a { color: #000; }
-    article#registration div.left div.content { margin-top: 25px; }
-        article#registration div.left div.content h1 { text-transform: uppercase; }
-
-        article#registration div.left div.content fieldset {}
-            article#registration div.left div.content fieldset legend {
-                background: #666;
-                margin: 0;
-                padding: 0;
-            }
-
-            article#registration div.left div.content {
-
-            }
-
-
-                article#registration div.left div.content fieldset legend a { color: #fff; font-size: 40%; padding: 5px 10px; text-transform: uppercase; vertical-align: middle; }
-                    article#registration div.left div.content fieldset legend a.first { color: #b2fc18; border-right: 2px solid #ccc; }
-                    article#registration div.left div.content fieldset legend a.last { color: #b2fc18; border-left: 2px solid #ccc; }
-            article#registration div.left div.content form div.left { float: left; }
-            article#registration div.left div.content form div.simple { display: block; margin: 15px 0; }
-                article#registration div.left div.content form div.simple label { float: left; font-weight: bold; padding-right: 10px; padding-top: 4px; text-align: right; width: 120px; }
-                article#registration div.left div.content form div.simple input[type="text"], article#registration div.left div.content form div.simple input[type="email"] { border: 1px solid #ccc; padding: 5px; width: 230px; }
-            article#registration div.left div.content form div.right { border-left: 1px solid #999; float: right; padding-left: 50px; }
-                         
-                    div#registration div.left div.content form select.program  {
-                            background: transparent;
-                            border: 1px solid #ccc;
-                            height: 30px;
-                            overflow: hidden;
-                            padding: 0;
-                            top: 0;
-                            visibility: visible;
-                            width: 200px;
-                            float: left;
-                    }
-
-                    
-                    article#registration div.left div.content form div.submit {
-                        float: right;
-                        margin-top: 20px;
-                        text-align: right;
-                        width: 896px;
-                        background: #ebebeb; /* Old browsers */
-                        background: -moz-linear-gradient(left,  #ebebeb 0%, #ebebeb 35%, #dddddd 75%, #ebebeb 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ebebeb), color-stop(35%,#ebebeb), color-stop(75%,#dddddd), color-stop(100%,#ebebeb)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(left,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* IE10+ */
-                        background: linear-gradient(to right,  #ebebeb 0%,#ebebeb 35%,#dddddd 75%,#ebebeb 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ebebeb', endColorstr='#ebebeb',GradientType=1 ); /* IE6-9 */
-                    }  
-                    article#registration div.left div.content div.submit a {
-                        border: 1px solid #ccc;
-                        font-weight: bold;
-                        padding: 15px 25px;
-                        background: #8dc800; /* Old browsers */
-                        background: -moz-linear-gradient(top,  #8dc800 0%, #6ca403 86%, #7bb203 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8dc800), color-stop(86%,#6ca403), color-stop(100%,#7bb203)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(top,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* IE10+ */
-                        background: linear-gradient(to bottom,  #8dc800 0%,#6ca403 86%,#7bb203 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8dc800', endColorstr='#7bb203',GradientType=0 ); /* IE6-9 */
-                    }
-                    article#registration div.left div.content div.submit a:hover, article#registration div.left div.content  div.submit a:hover {
-                        cursor: pointer;
-                        background: #6ca403; /* Old browsers */
-                        background: -moz-linear-gradient(top,  #6ca403 0%, #8dc800 32%, #7bb203 100%); /* FF3.6+ */
-                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#6ca403), color-stop(32%,#8dc800), color-stop(100%,#7bb203)); /* Chrome,Safari4+ */
-                        background: -webkit-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* Chrome10+,Safari5.1+ */
-                        background: -o-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* Opera 11.10+ */
-                        background: -ms-linear-gradient(top,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* IE10+ */
-                        background: linear-gradient(to bottom,  #6ca403 0%,#8dc800 32%,#7bb203 100%); /* W3C */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6ca403', endColorstr='#7bb203',GradientType=0 ); /* IE6-9 */
-                    }
 
 /* blog index */
 article#blog {}
@@ -843,7 +593,6 @@ article#blog {}
             margin-bottom: 0;
             width: 240px;
         }
-            article#blog div.right ul li:first-child { margin-left: 5px; text-transform: uppercase; }
             article#blog div.right ul li a { color: #0d6878; display: block; font-weight: normal; padding-top: 3px; padding-left: 20px; padding-bottom: 3px; }
             article#blog div.right ul li a:hover, article#blog div.right ul li a.active {
                 background: #99cc33 url(../images/arrow-left.jpg) 5px center no-repeat;
@@ -910,7 +659,7 @@ article#post {}
             article#post div.right ul li a:hover, article#post div.right ul li a.active {
                 background: #99cc33 url(../images/arrow-left.jpg) 5px center no-repeat;
             }
-        article#post div.right ul li:first-child { font-size: 120%; padding-left: 5px; text-transform: uppercase; }
+        article#post div.right ul li:first-child { font-size: 160%; padding-left: 5px; text-transform: uppercase; }
 
 /* contact */
 article#contact { font-family: Helvetica, Arial, sans-serif; }
@@ -1108,6 +857,7 @@ footer #footer-bottom { font-size: 80%; font-weight: bold; }
 }
 .pagination {
     margin:10px auto;
+    width:100px;
 }
 .pagination li {
     float:left;
@@ -1127,13 +877,6 @@ footer #footer-bottom { font-size: 80%; font-weight: bold; }
 .pagination li.current a {
     background-position:0 -12px;
 }
-.gsc-input { width: 95px; }
-.gsib_a { padding: 1px 6px 0; width: 0; }
-.gstl_0 { width: 100px; }
-.gsc-search-box { width: 185px; }
-.gsc-control-cse { background: none; border: none; height: 15px; padding: 2px 0; }
-input.gsc-search-button { margin: 0; }
-.gsc-search-box-tools .gsc-search-box .gsc-input { padding-right: 5px; }
 
 /* ======================== RESPONSIVE FOR TABLET ================== */
 /* for tablet (width=710px) 
@@ -1141,6 +884,7 @@ input.gsc-search-button { margin: 0; }
 /* Portrait tablet to landscape and desktop */
 @media (max-width: 979px) {
     body {}
+    p { line-height: 14px; }
         #event img { height: 85px; width: 110px; }
         header { margin-top: 0; width: 710px; }
             header img#logo { margin-top: 10px; }
@@ -1178,20 +922,20 @@ input.gsc-search-button { margin: 0; }
                 #menu-slider ul li:first-child { margin-left: 430px; }
                 #menu-slider ul li:nth-child(2) { margin-left: 520px; }
                 #menu-slider ul li:last-child { margin-left: 600px; }
-        header #nav-middle { margin-bottom: 100px; width: 694px; }
+        header #nav-middle { margin-bottom: 100px; }
             header #nav-middle li:last-child span a { font-size: 90%; letter-spacing: -1px; }
 
     /* article */
-    header, article#who-we-are, article#what-we-offer, article#how-we-do-it, article#what-we-do, article#your-career, footer { margin: 0 auto; width: 696px; }
-    article#who-we-are, article#what-we-offer, article#how-we-do-it, article#what-we-do, article#your-career { margin-bottom: 100px; }
+    header, article#who, article#what, article#how, article#our, article#commitment, footer { margin: 0 auto; width: 696px; }
+    article#who, article#what, article#how, article#our, article#commitment { margin-bottom: 100px; }
         fieldset legend { font-size: 180%; }
             fieldset h5 { font-size: 180%; font-weight: normal; }
             fieldset .bottom-title { color: #999; font-size: 120%; letter-spacing: -1px; }
             fieldset p, fieldset ul { color: #555; line-height: 20px; margin-left: 120px; width: 525px; }
-            fieldset p img { height: 220px; margin-left: 120px; margin-bottom: 30px; width: 525px; }
-        article#how-we-do-it ul { margin-left: 150px; }
+            fieldset img { float: left; height: 220px; margin-left: 120px; margin-bottom: 30px; width: 525px; }
+        article#how ul { margin-left: 150px; }
             fieldset .info p { margin-left: 0; margin-right: 10px; }
-            article#how-we-do-it .info span { padding: 14px 10px 12px 90px; text-align: right; }
+            article#how .info span { padding: 14px 10px 12px 90px; text-align: right; }
             fieldset .info img { float: right; height: 50px; width: 146px; }
             fieldset blockquote { margin-left: 0; }
                 fieldset blockquote img { height: 92px; margin-right: 20px; overflow: hidden; width: 67px; }
@@ -1329,7 +1073,7 @@ input.gsc-search-button { margin: 0; }
         header #login { top: 60px; right: 0; }
         header #nav-middle { margin-top: 40px; margin-bottom: 200px; }
             header #nav-middle li:first-child { top: 60px; }
-            header #nav-middle li:last-child { display: block; left: 0; top: -20px; text-align: center; width: 320px; }
+            header #nav-middle li:last-child { top: -20px; text-align: center; }
                 header #nav-middle li:last-child span { border: none; margin: 0; padding: 0; }
                     header #nav-middle li:last-child span a { color: #1C7D99; }
                     header #nav-middle li:last-child span a:hover { text-decoration: underline; }
@@ -1377,8 +1121,8 @@ input.gsc-search-button { margin: 0; }
     /* article */
     nav#breadcrumb { margin-top: 0; }
         nav#breadcrumb div { padding-left: 10px; width: 320px; }
-    header, article#who-we-are, article#what-we-offer, article#how-we-do-it, article#what-we-do, article#your-career, footer { margin: 0 auto; width: 320px; }
-    article#who-we-are, article#what-we-offer, article#how-we-do-it, article#what-we-do, article#your-career { margin-bottom: 60px; }
+    header, article#who, article#what, article#how, article#our, article#commitment, footer { margin: 0 auto; width: 320px; }
+    article#who, article#what, article#how, article#our, article#commitment { margin-bottom: 60px; }
         fieldset legend { font-size: 180%; }
             fieldset h5 { font-size: 180%; font-weight: normal; }
             fieldset .bottom-title { color: #999; font-size: 120%; letter-spacing: -1px; }
@@ -1386,11 +1130,11 @@ input.gsc-search-button { margin: 0; }
             fieldset ul { color: #555; line-height: 20px; margin-left: 20px; width: 300px; }
             fieldset img { float: left; height: 135px; margin-left: 0; margin-bottom: 30px; width: 320px; }
         h4 { font-size: 80%; }
-        article#how-we-do-it ul { margin-left: 20px; }
+        article#how ul { margin-left: 20px; }
             fieldset .info p { float: none; margin-left: 0; margin-right: 0; text-align: center; }
-            article#how-we-do-it .info span { float: left; padding: 0; text-align: center; }
+            article#how .info span { float: left; padding: 0; text-align: center; }
             fieldset .info { background: none; }
-            fieldset .info img { float: left; height: 50px; margin-left: 88px; width: 146px; }
+            fieldset .info img { height: 50px; margin-left: 88px; width: 146px; }
             fieldset blockquote { margin-left: 0; }
                 fieldset blockquote img { height: 92px; margin-right: 10px; overflow: hidden; width: 67px; }
                 fieldset blockquote .quot { display: none; }
@@ -1503,16 +1247,3 @@ input.gsc-search-button { margin: 0; }
     #slider a.prev { margin-top: -220px; margin-left: -25px; position: absolute; z-index: 99; }
     #slider a.next { margin-top: -220px; margin-left: 321px; position: absolute; z-index: 99; }
 }
-/* CSS GOOGLE SEARCH EDIT */
- #search-field form {
-    padding: 0px 0px 0px 0px;
- }
- input.gsc-input {
-    border-color: #004220;
-    width:20px;  
-  }
-  input.gsc-search-button {
-    border-color: #004220;
-    background-color: #004220;
-    display: none;
-  }

@@ -1,3 +1,67 @@
+<?php
+        $menus = $programs;
+
+        $hash = array();
+        foreach($menus as $object)
+        {
+            $hash[$object->id] = array('object' => $object);
+        }
+        
+
+        $tree = array();
+        foreach($hash as $id => &$node)
+        {
+            if($parent = $node['object']->parent){
+                $hash[$parent]['children'][] =& $node;
+            }else{
+                $tree[] =& $node;
+            }
+        }
+        unset($node, $hash);
+
+        function render_tree($tree)
+        {
+            echo '<tbody>';
+            $no = 1;
+            foreach($tree as $node)
+            {   
+                render_node($node,0, $no++ );
+            }
+            echo '</tbody>';
+        }
+
+        // render tree node
+        function render_node($node, $level = 0, $no = 1)
+        {   
+            
+            $inset = str_repeat('--', $level);
+            
+           // echo '<tr><td>'.$inset.$node['object']->program.'</td></tr>';
+
+            echo '<tr>';
+            echo '<td>'.$inset.$node['object']->program.'</td>';
+            //echo '<td>'.$node['object']->parent.'</td>';
+            echo '<td>'.$node['object']->price.'</td>';
+            echo '<td>'.anchor('admin/programs/edit/'.$node['object']->id,'Edit','class="btn btn-mini btn-primary"');
+            echo anchor('admin/programs/remove/'.$node['object']->id,'Delete',array('class' => "btn btn-mini btn-warning", 'onclick' => "return confirm('yakin data mau dihapus??')"));
+            echo '</td>';
+            echo '</tr>';
+    
+
+            if (isset($node['children']))
+            {
+                
+                foreach($node['children'] as $node)
+                {
+                    render_node($node, $level+1);
+                }
+                
+            }
+            
+        }
+?>
+
+
 <div class="header">
             
             <h1 class="page-title">List Programs</h1>
@@ -7,6 +71,7 @@
     <li><a href="<?php echo site_url('admin/dashboard'); ?>">Home</a> <span class="divider">/</span></li>
     <li class="active">Programs</li>
 </ul>
+
 
         <div class="container-fluid">
             <div class="row-fluid">
@@ -29,30 +94,12 @@
                         <tr>
                            <!-- <th>Lang</th> -->
                             <th>Program</th>
-                            <th>Parent</th>      
+                            <!--<th>Parent</th> -->     
                             <th>Price</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php if($programs){ ?>
-                        <?php foreach($programs as $result) : ?>
-                            <tr>
-                                <td><?php echo $result->program ?></td>
-                                <td><?php echo $result->parent ?></td>
-                                <td><?php echo $result->price ?></td>
-                                <td><?php echo anchor('admin/programs/edit/'.$result->id,'Edit','class="btn btn-mini btn-primary"')?>
-                                    <?php echo anchor('admin/programs/remove/'.$result->id,'Delete',array('class' => "btn btn-mini btn-warning", 'onclick' => "return confirm('yakin data mau dihapus??')"))?>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                        <?php }else{ ?>
-                        <tr>
-                                <td colspan="5">empty</td>
-                                
-                            </tr>
-                        <?php } ?>
-                    </tbody>
+                    <?php echo render_tree($tree) ?>
                 </table>            
         </div>
     </div>

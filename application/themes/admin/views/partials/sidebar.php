@@ -18,8 +18,10 @@
               <li class="<?php echo ( $this->uri->segment(2) == 'questions' ? 'active' : false )?>"><a href="<?php echo site_url('admin/questions')?>"><i class="icon-th-large"></i> Leading Questions</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'registers' ? 'active' : false )?>"><a href="<?php echo site_url('admin/registers')?>"><i class="icon-th-large"></i> User Registers</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'posts' ? 'active' : false )?>"><a href="<?php echo site_url('admin/posts')?>"><i class="icon-list-alt"></i> Blogs</a></li>
+              <!--
               <li class="<?php echo ( $this->uri->segment(2) == 'galleries' ? 'active' : false )?>"><a href="<?php echo site_url('admin/galleries')?>"><i class="icon-camera"></i> Galleries</a></li>
               <li class="<?php echo ( $this->uri->segment(2) == 'images' ? 'active' : false )?>"><a href="<?php echo site_url('admin/images')?>"><i class="icon-picture"></i> Images</a></li>
+              -->
               <li class="<?php echo ( $this->uri->segment(2) == 'filemanager' ? 'active' : false )?>"><a href="<?php echo site_url('admin/filemanager')?>"><i class="icon-folder-open"></i> File Managers</a></li>
               
         </ul>

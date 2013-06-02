@@ -29,16 +29,19 @@
 						?>				
 				</ul>
 				<ul class="right">
-					<li><a href="#">Sitemap</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="<?php echo base_url() ?>">&copy; ELI - Prasetiya Mulya - 2012 - <?php echo date('Y') ?></a></li>
 					<?php foreach ($footerrights as $footerright) {
 							echo '<li>';
 							echo lanchor($footerright->url, $footerright->nav_title); 
 							echo '</li>';
 						}
 						?>	
-					<li><a href="">&copy; ELI - Prasetiya Mulya - 2012</a></li>			
+					<li><a href="<?php echo base_url() ?>">&copy; ELI - Prasetiya Mulya - 2012 - <?php echo date('Y') ?></a></li>		
 				</ul>
 			</div><!--footer-bottom-->
 		</footer>
+<script src="<?php echo $this->config->item('js') ?>functions.js"></script>
+<script src="<?php echo $this->config->item('js') ?>jquery.dropkick.js"></script>
+<script src="<?php echo $this->config->item('js') ?>jquery.hoverscroll.js"></script>
+<script src="<?php echo $this->config->item('js') ?>slides.min.jquery.js"></script>
+</body>
+</html>

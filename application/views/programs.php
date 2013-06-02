@@ -51,7 +51,7 @@
 												$node['object']->program_name .	
 											'</div>';
 		    }else if($level==1){
-		    	$listprograms = '<h5>'.$node['object']->program_name . '</h5>';
+		    	$listprograms = '<h5>'.$node['object']->program_name . ':</h5>';
 		    }else
 		    {	$slug = str_replace(' ', '-', $node['object']->program_name);
 		    	$listprograms = '<li>'.lanchor('programs/read/'.$node['object']->id.'/'.$slug, $node['object']->program_name);

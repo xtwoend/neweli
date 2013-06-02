@@ -26,12 +26,13 @@ class Posts extends Admin_Controller {
 	function add()
 	{
 		if($_POST){
-		
+			$image = $this->do_upload();
 			$arrdata =  array(						
 						'post_name'	=>  $this->input->post('post_name'),
 						'url'	=>  $this->input->post('url'),
 						'created_by' 		=>  $this->session->userdata('identifier'),
 						'created_at'		=>  date('Y-m-d H:i:s'),
+						'img_src'		=>  $image['file_name'],
 						);
 			$post_id = $this->mposts->add($arrdata);
 			
@@ -77,6 +78,14 @@ class Posts extends Admin_Controller {
 		if(!$id) redirect('admin/news');
 		
 		if($_POST){
+			
+			$imagearray = array();
+			if(isset($_FILES['newsimage']['name']))
+			{
+				$image = $this->do_upload();
+				$imagearray = array('img_src'	=>  $image['file_name']);
+			}
+
 			$arrdata =  array(						
 						'post_name'	=>  $this->input->post('post_name'),
 						'url'	=>  $this->input->post('url'),
@@ -84,7 +93,7 @@ class Posts extends Admin_Controller {
 						'updated_at'		=>  date('Y-m-d H:i:s'),
 						);
 
-			$edited = $this->mposts->edit($id , $arrdata );
+			$edited = $this->mposts->edit($id , ($arrdata + $imagearray) );
 
 			foreach ($this->mlang->get('id, lang') as $lange) {
 				
@@ -138,6 +147,41 @@ class Posts extends Admin_Controller {
 		redirect('admin/posts');
 	}
 	
+	function do_upload(){
+
+	        // Load the library - no config specified here
+	        $this->load->library('upload');
+	 		
+	 		$datareturn  = array();
+	        // Check if there was a file uploaded - there are other ways to
+	        // check this such as checking the 'error' for the file - if error
+	        // is 0, you are good to code
+	       	if (isset($_FILES['newsimage']['name']))
+		        {
+		            // Specify configuration for File 1
+		            $config['upload_path'] = 'file/image/';
+		            $config['allowed_types'] = 'gif|jpg|png';
+		            $config['max_size'] = '1000';
+		            $config['max_width']  = '1024';
+		            $config['max_height']  = '1024';
+		            $config['encrypt_name'] = true;       
+		 
+		            // Initialize config for File 1
+		            $this->upload->initialize($config);
+		 
+		            // Upload file 1
+		            if ($this->upload->do_upload('newsimage'))
+		            {
+		                $datareturn = $this->upload->data();
+		            }
+		            else
+		            {
+		                $datareturn = $this->upload->data();
+		            }
+		        }
+	    	
+	    return $datareturn;
+	}
 }
  
 /* End of file */

@@ -10,7 +10,7 @@ class Programs extends Public_Controller {
 	function index()
 	{	
 		$data['programs'] = $this->mprogram_lang->findprograms(array('program_lang.lang'=> $this->lang->mci_current()));
-		$data['content'] = $this->mprogram_lang->findcontent(array('programs.first_program'=> 1));
+		$data['content'] = $this->mprogram_lang->findcontent(array('programs.first_program'=> 1, 'program_lang.lang'=> $this->lang->mci_current() ));
 
 		$this->template
  			->title('Prasetiya Mulya', '')

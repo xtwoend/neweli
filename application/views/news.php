@@ -19,7 +19,9 @@
 						start: <?php echo date('M j, Y ',strtotime($new->start_date)) ?> | end: <?php echo date('M j, Y ',strtotime($new->end_date)) ?> 
 					</div>
 					<h2><?php echo lanchor('news/read/'.$new->url, $new->title); ?></h2>
-					
+					<?php if(isset($new->img_src)){ ?>
+						<img class="section_image" src="<?php echo base_url() ?>file/image/<?php echo $new->img_src ?>">
+						<?php } ?>
 					<?php echo word_limiter($new->content, 20); ?>
 					<?php echo lanchor('news/read/'.$new->url, 'detail'); ?> &gt;&gt;
 				</div><!--item-->

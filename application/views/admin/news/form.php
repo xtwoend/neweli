@@ -14,7 +14,7 @@
 </div>
 <?php } ?>
 
-<form class="form-horizontal" method="post">
+<form class="form-horizontal" method="post" enctype="multipart/form-data">
 <div class="container-fluid">
     <div class="row-fluid">            
           <div class="control-group">
@@ -41,9 +41,9 @@
 			  </div> -	
 			  <div id="datetimepicker2" class="input-append" >
 				<input data-format="yyyy-MM-dd HH:mm:ss" type="text" placeholder="Enter End event" name="end_date" value="<?php echo ($create) ? '': $news->end_date ?>" style="width: 160px;"></input>
-				<span class="add-on">
-				  <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
-				</span>
+    				<span class="add-on">
+    				  <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i>
+    				</span>
 			  </div>
           </div>
 
@@ -53,7 +53,18 @@
               <input type="checkbox" name="fullday" id="is_home" <?php echo ($create) ? '' : ($news->fullday) ? 'checked': '' ?> >
             </div>
           </div>
-       
+
+          <div class="control-group">
+                  <label for="content" class="control-label">Upload Image</label>              
+                  <div class="controls">
+                    <?php echo form_upload('newsimage') ?> 
+                    <?php if(!$create){ ?>
+                      <img width="80" src="<?php echo base_url() ?>file/image/<?php echo $news->img_src ?>">
+                    <?php } ?>
+                  </div>
+          </div>
+
+          
     </div>
     <div class="row-fluid">
 

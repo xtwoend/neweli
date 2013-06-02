@@ -2,8 +2,8 @@
 	<div class="left">
 		<nav id="menu" class="cf">
 			<ul>
-				<li class="active"><a href="registration">public programs</a></li>
-				<li><a href="/registration/costum">custom programs</a></li>
+				<li class="active"><?php echo lanchor('registers','public programs'); ?></li>
+				<li><?php echo lanchor('registers/costum','custom programs'); ?></li>
 			</ul>
 		</nav>
 		<div class="content">
@@ -93,3 +93,15 @@
 		</div><!--content-->
 	</div><!--left-->
 </article>
+
+<script>
+    $('#personal').click(function() {
+	    var $this = $(this);
+	    // $this will contain a reference to the checkbox   
+	    if ($this.is(':checked')) {
+	        $('#company').css('display','none');
+	    } else {
+	        $('#company').css('display','block');
+	    }
+	});
+</script>
