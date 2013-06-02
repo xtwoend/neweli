@@ -523,7 +523,7 @@ CREATE TABLE IF NOT EXISTS `section_lang` (
   UNIQUE KEY `sectionlang` (`lang`,`section_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table newcms.section_lang: ~6 rows (approximately)
+-- Dumping data for table newcms.section_lang: ~30 rows (approximately)
 /*!40000 ALTER TABLE `section_lang` DISABLE KEYS */;
 INSERT INTO `section_lang` (`section_id`, `lang`, `title`, `subtitle`, `content`) VALUES
 	(6, 'en', 'Who We Are', '', '<p>Dates back to May 19, 1980, when a group of prominent business leaders in Indonesia set up the Prasetiya Mulya Foundation (YPM) as a commitment to give real contributions to the nation. The words of Prasetiya Mulya is the Sanskrit words for noble pledge; the name that was given by the President of Republic of Indonesia.</p>\r\n\r\n<p><img src="http://localhost/elinew/prasmul-eli/themes/images/photo1.png" style="float:right; margin:20px 0px" /></p>\r\n\r\n<p>With a mission to develop professionalism in Indonesia business management practices that anchored to the sound management knowledge and skill, Prasetiya Mulya Foundation established the Management Development Centre in 1982, which later became the Prasetiya Mulya Institute of Management (IMPM) ; a not for profit organization to provide management education and training. Beside executive management courses and development program for small and medium enterprises, Prasetiya Mulya Institute of Management also initiated the first MBA program in Indonesia.</p>\r\n\r\n<p>In 1993, the Prasetiya Mulya Institute of Management which offered the MBA program was renamed to the Sekolah Tinggi Manajemen Prasetiya Mulya (Prasetiya Mulya School of Management), in compliance with new regulations of Indonesia Ministry of Education. These new regulations also required the replacement of Master of Business Administration (MBA) degree with a Magister Management (MM). Meanwhile, the executive learning programs which not offer the academic degree still be managed under Lembaga Manajemen Prasetiya Mulya (Prasetiya Mulya Institute of Management). In 2000, with an objective to promote the existence of business school in Indonesia, we decided to use Prasetiya Mulya Business School as our corporate brand. In order to strengthen the brand of Prasetiya Mulya Business School, we are offering our services in business management education either for academic degree or executive programs under single brand.</p>\r\n\r\n<p>The enhancement of our services in academic programs as well as in the executive programs, the escalation of quality requirement in both programs, the increasing flexibility needed to cope with the business dynamics and the burgeoning demand of contextualization and customized solution in developing business people certainly require full hearted people, a focus management team and specific competencies to be developed further. All of these things are necessitated to improve our services, to enhance the impact of the solution and to maintain our commitment in developing human asset value of the business. This was what we have done since 2009 to enhance our services to Indonesia business world in non academic development programs.</p>\r\n\r\n<p>With more than 30 years experiences in partnering with numerous companies in developing reliable talents and with, the continuous development in the management knowledge and business contextualization Prasetiya Mulya Executive Learning Institute, formerly known as Lembaga Manajemen (Prasetiya Mulya Institute of Management), is ready for partnering with you to develop a higher value of human asset in your company, not only to improve the business performance but also to enhance the contribution in transforming Indonesia business world better.</p>\r\n'),
@@ -554,10 +554,25 @@ CREATE TABLE IF NOT EXISTS `setting` (
   `value` varchar(50) DEFAULT NULL,
   `description` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table newcms.setting: ~0 rows (approximately)
 /*!40000 ALTER TABLE `setting` DISABLE KEYS */;
+INSERT INTO `setting` (`id`, `value`, `description`) VALUES
+	(1, 'Prastimulya Educations', 'site name'),
+	(2, 'Description Site cccc', 'Description Site'),
+	(3, '021-82222', 'phone'),
+	(4, 'Facebook Link:ssssss', 'Facebook Link:'),
+	(5, 'Twitter Link: wdwdw', 'Twitter Link:'),
+	(6, 'Jl. Supervise Block B Jakarta, Indonesiass', 'Address'),
+	(7, 'YYYY-MM-DD', 'date format'),
+	(8, 'en', 'default language'),
+	(9, 'dsfs@dfsdfdsfs.dfs', 'Google Analytics ID'),
+	(10, 'doel@diantaksi.com', 'email master'),
+	(11, 'hafidz88', 'Password email'),
+	(12, '022222', 'fax'),
+	(13, 'smtp.diantaksi.com', 'SMTP server'),
+	(14, '25', 'SMTP PORT');
 /*!40000 ALTER TABLE `setting` ENABLE KEYS */;
 
 

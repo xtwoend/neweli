@@ -1,25 +1,33 @@
 <?php
 class Sites extends Admin_Controller {
  	
+	public $module = 'admin/sites/'; 
+	
  	function __construct()
 	{
 		parent::__construct();
+		$this->load->model(array('msites','mlang'));
 	}	
 
 	function index()
 	{
-		// load language file
-		$this->lang->load('about');
- 		$data['i18n'] = $this->lang->mci_current();
+		if($_POST)
+		{
+			$emailserver = $this->input->post('sites');
+			foreach ($emailserver as $key => $value) {
+				$this->msites->edit($key, array('value' => $value));
+			}
+			redirect('admin/sites');
+		}
 
- 		$user_identifier = $this->session->userdata('identifier');
-		
+		$data['sites'] = $this->msites->all();		
+ 		$data['create'] = false;		
 		$this->template
 			->title('Prasmul Admin', 'Dashboard')
 			->set_layout('main')
 			->set_partial('sidebar', 'partials/sidebar')
 			->set_partial('footer', 'partials/footer')
-			->build('admin/dashboard');
+			->build($this->module.'index',$data);
 	}
 }
  
