@@ -48,7 +48,7 @@
 					</a>
 				</li>
 				<li>
-					<span><a href="#">register online</a></span>
+					<span><a href="<?php lecho('registers');?>">register online</a></span>
 					<a href="<?php lecho('questions');?>">
 						<input type="button" name="find" value="Find your programs"/>
 					</a>
