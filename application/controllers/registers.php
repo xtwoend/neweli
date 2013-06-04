@@ -75,7 +75,7 @@ class Registers extends Public_Controller {
 				$register_id = $this->mregisters->add($regis);
 				if(!$register_id) redirect('registers');
         		$this->session->set_userdata('register_id', $register_id);
-        		redirect('registers/step2?page=2');
+        		redirect('registers/catakcostume/'.$register_id);
   		}
 
   		
@@ -211,6 +211,13 @@ class Registers extends Public_Controller {
     	$data['programs'] = $this->mregister_program->get('*',array('registration_id' => $register_id ));
     	$this->load->view('cetakregister',$data);
 
+    }
+
+    public function catakcostume($register_id)
+    {
+       $data['register'] = $this->mregisters->find(array('id'=>$register_id));
+
+       $this->load->view('cetakregistercostum',$data);
     }
 }
  
