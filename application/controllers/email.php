@@ -31,7 +31,7 @@ class Email extends Public_Controller {
 		// send the message
 		$mailer->send($message);
 
-		//redirect('contact-us');
+		redirect('contact-us');
 	}
 }
  

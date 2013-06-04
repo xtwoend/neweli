@@ -2,8 +2,8 @@
 	<div class="left">
 		<nav id="menu" class="cf">
 			<ul>
-				<li class="active"><?php echo lanchor('registers','public programs'); ?></li>
-				<li><?php echo lanchor('registers/costum','custom programs'); ?></li>
+				<li <?php echo ($this->input->get('page') == 1)? 'class="active"' : ''; ?>><?php echo lanchor('registers','public programs'); ?></li>
+				<li <?php echo ($this->input->get('page') == 2)? 'class="active"' : ''; ?>><?php echo lanchor('registers/costum','custom programs'); ?></li>
 			</ul>
 		</nav>
 		
@@ -63,7 +63,7 @@
 		<br>		
 		<div class="submit cf">
 					
-				<?php echo lanchor('registers/step3' ,'Next &rsaquo;','class="rounded"'); ?>
+				<?php echo lanchor('registers/step3?page='.$this->input->get('page') ,'Next &rsaquo;','class="rounded"'); ?>
 		</div>
 		
 		</div><!--content-->

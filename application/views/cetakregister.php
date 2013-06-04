@@ -14,7 +14,8 @@ Industry : <?php echo $register->indrustry_com; ?> <br>
 Alamat : <?php echo $register->address_com; ?> <br>
 telp / fax : <?php echo $register->phone_com; ?> / <?php echo $register->fax_com; ?><br>
 
-
+<h2> Note: </h2>
+<?php echo $register->note; ?>
 
 <br>
 <br>

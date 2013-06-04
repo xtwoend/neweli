@@ -1,0 +1,50 @@
+-- --------------------------------------------------------
+-- Host:                         127.0.0.1
+-- Versi server:                 5.5.24-log - MySQL Community Server (GPL)
+-- OS Server:                    Win32
+-- HeidiSQL Versi:               8.0.0.4396
+-- --------------------------------------------------------
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+-- Dumping structure for table newcms.registrations
+DROP TABLE IF EXISTS `registrations`;
+CREATE TABLE IF NOT EXISTS `registrations` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `personal` int(11) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `birth_place` varchar(50) DEFAULT NULL,
+  `participant_of` int(11) DEFAULT '0',
+  `date_of_birth` date DEFAULT NULL,
+  `gander` varchar(20) DEFAULT NULL,
+  `mobile_phone` varchar(20) DEFAULT NULL,
+  `job_title` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `name_com` varchar(100) DEFAULT NULL,
+  `email_com` varchar(100) DEFAULT NULL,
+  `indrustry_com` varchar(100) DEFAULT NULL,
+  `address_com` varchar(100) DEFAULT NULL,
+  `code_com` varchar(10) DEFAULT NULL,
+  `city_com` varchar(100) DEFAULT NULL,
+  `country_com` varchar(100) DEFAULT NULL,
+  `phone_com` varchar(100) DEFAULT NULL,
+  `fax_com` varchar(100) DEFAULT NULL,
+  `note` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+-- Dumping data for table newcms.registrations: ~4 rows (approximately)
+/*!40000 ALTER TABLE `registrations` DISABLE KEYS */;
+INSERT INTO `registrations` (`id`, `personal`, `first_name`, `last_name`, `birth_place`, `participant_of`, `date_of_birth`, `gander`, `mobile_phone`, `job_title`, `email`, `name_com`, `email_com`, `indrustry_com`, `address_com`, `code_com`, `city_com`, `country_com`, `phone_com`, `fax_com`, `note`) VALUES
+	(4, 0, 'Abdul', 'Anshari', 's', 1, '0000-00-00', '0', '622158901717', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(5, 0, 's', 'sd', 'sd', 1, '0000-00-00', 'Male', 'sd', 'sd', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+	(6, 1, 'Adub', 'a', NULL, 0, NULL, 'Male', NULL, 'asd', 'asd@asd.com', '', '', '', '', '', '', '', '', '', NULL),
+	(7, 0, 'Anshari', 'Anshari', 'a', 6, '0000-00-00', 'Male', '622158901717', 'aaa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+/*!40000 ALTER TABLE `registrations` ENABLE KEYS */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

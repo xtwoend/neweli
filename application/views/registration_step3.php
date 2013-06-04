@@ -3,8 +3,8 @@
 	<div class="left">
 		<nav id="menu" class="cf">
 			<ul>
-				<li class="active"><?php echo lanchor('registers','public programs'); ?></li>
-				<li><?php echo lanchor('registers/costum','custom programs'); ?></li>
+				<li <?php echo ($this->input->get('page') == 1)? 'class="active"' : ''; ?>><?php echo lanchor('registers','public programs'); ?></li>
+				<li <?php echo ($this->input->get('page') == 2)? 'class="active"' : ''; ?>><?php echo lanchor('registers/costum','custom programs'); ?></li>
 			</ul>
 		</nav>
 		

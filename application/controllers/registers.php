@@ -34,7 +34,7 @@ class Registers extends Public_Controller {
 				$register_id = $this->mregisters->add($regis);
 				if(!$register_id) redirect('registers');
         		$this->session->set_userdata('register_id', $register_id);
-        		redirect('registers/step2');
+        		redirect('registers/step2?page=1');
   		}
 
 
@@ -68,13 +68,14 @@ class Registers extends Public_Controller {
                         'city_com' => $this->input->post('com_city'),
                         'country_com' => $this->input->post('com_country'),
                         'phone_com' => $this->input->post('com_phone'),
-                        'fax_com' => $this->input->post('com_fax')
+                        'fax_com' => $this->input->post('com_fax'),
+                        'note' => $this->input->post('note'),
                     );
         				
 				$register_id = $this->mregisters->add($regis);
 				if(!$register_id) redirect('registers');
         		$this->session->set_userdata('register_id', $register_id);
-        		redirect('registers/step2');
+        		redirect('registers/step2?page=2');
   		}
 
   		
@@ -84,11 +85,13 @@ class Registers extends Public_Controller {
 			->set_layout('main')
 			->set_partial('header', 'partials/header')
 			->set_partial('footer', 'partials/footer')
-			->build('registration' , $data);
+			->build('cotumeregister' , $data);
 	}	
 
 	function step2()
-	{
+	{    
+        $page = $this->input->get('page');
+     
 		if($_POST)
 		{	
 			$programdata =  array(
@@ -98,7 +101,7 @@ class Registers extends Public_Controller {
                                 'date_registration' => date('Y-m-d H:i:s')
                                 );
 			$this->mregister_program->add($programdata);
-        	redirect('registers/step2');
+        	redirect('registers/step2?page='.$page);
 		}
 
         $data['programselected'] = $this->mregister_program->get('*',array('registration_id' => $this->session->userdata('register_id') ));
@@ -117,6 +120,9 @@ class Registers extends Public_Controller {
 
 	function step3()
 	{	
+        $page = $this->input->get('page');
+       
+
 		if($_POST){
 			$participantdata = array(
                         'first_name' => $this->input->post('firstname'),
@@ -151,7 +157,7 @@ class Registers extends Public_Controller {
 	        }
 
 	        
-	        redirect('registers/step3');
+	        redirect('registers/step3?page='.$page);
 		}
 
         $data['programs'] = $this->mregister_program->get('*',array('registration_id' => $this->session->userdata('register_id') ));
